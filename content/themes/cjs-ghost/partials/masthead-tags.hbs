@@ -1,0 +1,73 @@
+{{#foreach posts}}
+{{#if @first}}
+{{#if image}}
+<div id="title-container" class="title-container" style=" background: url('{{image}}');">
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+	<h1 class="title-text">&nbsp;</h1>
+</div>
+{{else}}
+{{#has tag="Ansible"}}
+<div id="title-container" class="title-container" style=" background: url('{{asset "images/masthead-ansible.png"}}');">
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+	<h1 class="title-text">&nbsp;</h1>
+</div>
+{{else}}
+{{#has tag="Debian"}}
+<div id="title-container" class="title-container" style=" background: url('{{asset "images/masthead-debian.png"}}');">
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+	<h1 class="title-text">&nbsp;</h1>
+</div>
+{{else}}
+{{#has tag="RHEL"}}
+<div id="title-container" class="title-container" style=" background: url('{{asset "images/masthead-rhel.png"}}');">
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+	<h1 class="title-text">&nbsp;</h1>
+</div>
+{{else}}
+{{#has tag="Linux"}}
+<div id="title-container" class="title-container" style=" background: url('{{asset "images/masthead-linux.png"}}');">
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+	<h1 class="title-text">&nbsp;</h1>
+</div>
+{{else}}
+{{#has tag="Algorithms"}}
+<div id="title-container" class="title-container" style=" background: url('{{asset "images/masthead-algorithm.png"}}');">
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+	<h1 class="title-text">&nbsp;</h1>
+</div>
+{{else}}
+{{#has tag="Scripting"}}
+<div id="title-container" class="title-container" style=" background: url('{{asset "images/masthead-script.png"}}');">
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+	<h1 class="title-text">&nbsp;</h1>
+</div>
+{{else}}
+{{#has tag="Security"}}
+<div id="title-container" class="title-container" style=" background: url('{{asset "images/masthead-security.png"}}');">
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+	<h1 class="title-text">&nbsp;</h1>
+</div>
+{{else}}
+{{#has tag="Projects"}}
+<div id="title-container" class="title-container" style=" background: url('{{asset "images/masthead-project.png"}}');">
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+	<h1 class="title-text">&nbsp;</h1>
+</div>
+{{else}}
+{{#has tag="Photos"}}
+<div id="title-container" class="title-container" style=" background: url('{{asset "images/masthead-photo.png"}}');">
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+	<h1 class="title-text">&nbsp;</h1>
+</div>
+{{else}}
+{{#has tag="Blog"}}
+<div id="title-container" class="title-container" style=" background: url('{{asset "images/masthead-blog.png"}}');">
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+	<h1 class="title-text">&nbsp;</h1>
+</div>
+{{else}}
+<div style="width: auto; height: 50px; overflow: auto;">&nbsp;</div>
+{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}
+{{/if}}
+{{/if}}
+{{/foreach}}

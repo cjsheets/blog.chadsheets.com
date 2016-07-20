@@ -1,0 +1,23 @@
+<article class="{{post_class}}">
+
+	<div class="post-header">
+		<h1 class="post-title">{{title}}</h1>
+		<p class="post-information"><time datetime="{{published_at}}" id="postdate">{{date format="MMM Do, YYYY"}}</time> By: {{author}} </p>
+	</div>
+
+	<div class="post-content clearfix">
+		{{{content}}}
+	</div>
+
+</article>
+
+<br><br><br>
+
+<div id="spriteButtonRSS"><a id="linkedin-share-button-tail"></a></div>
+<div id="spriteButtonGooglePlus"><a id="google-share-button-tail"></a></div>
+<div id="spriteButtonTwitter"><a id="twitter-share-button-tail"></a></div>
+<div id="spriteButtonFacebook"><a id="facebook-share-button-tail"></a></div>
+
+{{#if tags}}
+<span style="float: left;" class="post-tags">Post Tags: {{tags}}</span>
+{{/if}}

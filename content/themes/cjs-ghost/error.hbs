@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html class="js canvas canvastext custfont">
+<head>
+	{{! Document Settings }}
+	<meta http-equiv="Content-Type" content="text/html" charset="UTF-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+
+	{{! Page Meta }}
+	<title>{{meta_title}}</title>
+	<meta name="description" content="{{meta_description}}" />
+
+	<meta name="HandheldFriendly" content="True" />
+	<meta name="MobileOptimized" content="320" />
+	<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+	{{! Styles }}
+	<link rel="shortcut icon" type="image/x-icon" href="{{asset "/favicon.ico"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset "css/normalize.css"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset "css/nprogress.css"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset "css/githubv2.min.css"}}" />
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700|Titillium+Web:400" rel="stylesheet" /> 
+	<script src="{{asset "js/prettify.js"}}"></script>
+
+	{{ghost_head}}
+</head>
+<body class="{{body_class}}">
+	<div id="container-window">
+		<header class="nav-down">
+			<div id="header-bg">
+			</div>
+			<div id="container-header">
+				<span class="siteLogo"><a class="js-ajax-link js-show-index" title="{{@blog.title}}" href="{{@blog.url}}">ChadSheets<span class="siteLogoDotCom">.com</span></a></span>
+				<div class="menuHider">
+					<div class="closed" id="nav">
+						<nav id="nav_main" class="group navgation nd">
+							<ul id="nav-menu" class="menu">
+								<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1996"><a href="#" class="expand"></a><a class="js-ajax-link" href="{{@blog.url}}/about/">About</a>
+									<ul class="sub-menu">
+										<li class="strong quick menu-item menu-item-type-post_type menu-item-object-page menu-item-1997"><a class="js-ajax-link" href="{{@blog.url}}/about/">About Me</a></li>
+										<li class="menu-item menu-item-type-taxonomy menu-item-object-category menu-item-1998"><a class="js-ajax-link" href="{{@blog.url}}/resume/">Résumé</a></li>
+										<li class="external-link menu-item menu-item-type-custom menu-item-object-custom menu-item-1999"><hr></li>
+										<li class="external-link menu-item menu-item-type-custom menu-item-object-custom menu-item-1999"><a href="http://www.facebook.com/chad.sheets">Facebook</a></li>
+										<li class="external-link menu-item menu-item-type-custom menu-item-object-custom menu-item-1999"><a href="https://github.com/cjsheets">GitHub</a></li>
+										<li class="external-link menu-item menu-item-type-custom menu-item-object-custom menu-item-1999"><a href="https://www.linkedin.com/in/chadsheets">LinkedIn</a></li>
+									</ul>
+								</li>
+								<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1990"><a href="#" class="expand"></a><a class="js-ajax-link js-show-index" href="{{@blog.url}}">Posts</a>
+									<ul class="sub-menu">
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3002"><a class="js-ajax-link js-show-index" href="{{@blog.url}}">Blog</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1994"><a class="js-ajax-link" href="{{@blog.url}}/tag/linux/">Linux</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1992"><a class="js-ajax-link" href="{{@blog.url}}/tag/photos/">Photos</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1991"><a class="js-ajax-link" href="{{@blog.url}}/tag/scripts/">Script</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1991"><a class="js-ajax-link" href="">Tags</a></li>
+									</ul>
+								</li>
+							</ul>
+						</nav>
+					</div>
+				</div>
+			</div>
+			<div id="headerGradient" class="nav-down">
+			</div>
+		</header>
+		<div id="container-body"> <!-- old id container-ajax  class="container"-->
+			<div id="container-mobile-menu">
+				<div style="height: 55px; background: #FFFFFF;"><!-- Integrate into Menu css-->
+				</div>
+				<div class="mobile-menu">
+					<nav class="mobile-menu-border">
+						<ul>
+							<a class="js-ajax-link js-show-index mobile-menu-link" href="{{@blog.url}}"><li>Blog</li></a>
+							<a class="js-ajax-link mobile-menu-link" class="js-ajax-link" class="js-ajax-link" href="{{@blog.url}}/tag/code/"><li>Code</li></a>
+							<a class="js-ajax-link mobile-menu-link" class="js-ajax-link" href="{{@blog.url}}/tag/linux/"><li>Linux</li></a>
+							<a class="js-ajax-link mobile-menu-link" href="{{@blog.url}}/about"><li>About</li></a>
+						</ul>
+					</nav>
+				</div>
+			</div>
+
+
+<!-- - - - - - - - - - - - - 
+	Copy default.hbs
+	  - remove search menu
+	  - remove footer <script>
+	  - add error report into body
+ - - - - - - - - - - - - - - -->
+<div id="container-content"  class="container">
+	<div id="container-ajax" class="container">
+		<div class="latest-post container-post">
+			<div id="contentPadding" >
+
+                <section class="error-content error-404 js-error-container">
+                  <section class="error-details">
+                    <section class="error-message">
+                      <h1 class="error-code">Error: {{code}}</h1>
+                      <h4 class="error-description">{{message}}</h4>
+                      <p>It appears something went wrong. The issue was logged and will be reviewed. In the meantime
+                      you're welcome to visit the front page or any categories to the right.</p>
+                      <a class="error-link" href="{{@blog.url}}">Go to the front page →</a>
+                    </section>
+                  </section>
+                </section>
+                {{#if stack}}
+                  <section class="error-stack">
+                    <h3>Stack Trace</h3>
+                    <p><strong>{{message}}</strong></p>
+                    <ul class="error-stack-list">
+                      {{#each stack}}
+                        <li>
+                          at
+                          {{#if function}}<em class="error-stack-function">{{function}}</em>{{/if}}
+                          <span class="error-stack-file">({{at}})</span>
+                        </li>
+                      {{/each}}
+                    </ul>
+                  </section>
+                {{/if}}
+
+<div style="height: 500px;"></div>
+
+			</div>
+		</div>
+	</div><!--id="container-ajax"-->
+</div><!--id="container-content"-->
+
+
+
+			<div id="container-left-sidebar" class="container">
+				<div id="social-sidebar">
+					<div style="clear: both; height: 5px;"></div>
+					<div class="hrDottedDark"></div>
+					<div style="clear: both; height: 15px;"></div>
+
+					<a id="facebook-share-button" class="share-button">
+						<svg version="1.1" id="Capa_1" x="0px" y="0px" viewBox="0 0 32 32" xml:space="preserve" inkscape:version="0.91 r13725" sodipodi:docname="facebook.svg" width="32" height="32" ><g id="g3" transform="matrix(0.26738921,0,0,0.26738921,1,1.0000004)"><circle cx="56.098" cy="56.098" r="56.098" id="svg-button-facebook" style="fill:#b3b3b3" class="svg-button" /><path style="fill:#ffffff" d="m 70.201,58.294 -10.01,0 0,36.672 -15.166,0 0,-36.672 -7.213,0 0,-12.888 7.213,0 0,-8.34 c 0,-5.964 2.833,-15.303 15.301,-15.303 l 11.234,0.047 0,12.51 -8.151,0 c -1.337,0 -3.217,0.668 -3.217,3.513 l 0,7.585 11.334,0 -1.325,12.876 z" id="path7" inkscape:connector-curvature="0" /></g><g id="g9" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g11" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g13" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g15" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g17" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g19" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g21" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g23" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g25" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g27" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g29" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g31" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g33" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g35" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /><g id="g37" transform="matrix(0.26738921,0,0,0.26738921,0,82.195999)" /></svg>
+					</a><a id="twitter-share-button" class="share-button">
+						<svg version="1.1" id="Capa_2" x="0px" y="0px" viewBox="0 0 32 32" xml:space="preserve" inkscape:version="0.91 r13725" sodipodi:docname="twitter_gray.svg" width="32" height="32"><g id="g3" transform="matrix(0.26738921,0,0,0.26738921,0.99973276,1.0000004)"><circle style="fill:#b3b3b3" cx="56.098999" cy="56.098" r="56.098" id="svg-button-twitter" class="svg-button" /><g id="g7"><path style="fill:#f1f2f2" d="m 90.461,40.316 c -2.404,1.066 -4.99,1.787 -7.702,2.109 2.769,-1.659 4.894,-4.284 5.897,-7.417 -2.591,1.537 -5.462,2.652 -8.515,3.253 -2.446,-2.605 -5.931,-4.233 -9.79,-4.233 -7.404,0 -13.409,6.005 -13.409,13.409 0,1.051 0.119,2.074 0.349,3.056 -11.144,-0.559 -21.025,-5.897 -27.639,-14.012 -1.154,1.98 -1.816,4.285 -1.816,6.742 0,4.651 2.369,8.757 5.965,11.161 -2.197,-0.069 -4.266,-0.672 -6.073,-1.679 -0.001,0.057 -0.001,0.114 -0.001,0.17 0,6.497 4.624,11.916 10.757,13.147 -1.124,0.308 -2.311,0.471 -3.532,0.471 -0.866,0 -1.705,-0.083 -2.523,-0.239 1.706,5.326 6.657,9.203 12.526,9.312 -4.59,3.597 -10.371,5.74 -16.655,5.74 -1.08,0 -2.15,-0.063 -3.197,-0.188 5.931,3.806 12.981,6.025 20.553,6.025 24.664,0 38.152,-20.432 38.152,-38.153 0,-0.581 -0.013,-1.16 -0.039,-1.734 2.622,-1.89 4.895,-4.251 6.692,-6.94 l 0,0 z" id="path9" inkscape:connector-curvature="0" /></g></g><g id="g11" /><g id="g13" /><g id="g15" /><g id="g17" /><g id="g19" /><g id="g21" /><g id="g23" /><g id="g25" /><g id="g27" /><g id="g29" /><g id="g31" /><g id="g33" /><g id="g35" /><g id="g37" /><g id="g39" /></svg>
+					</a><a id="google-share-button" class="share-button">
+						<svg version="1.1" id="Capa_3" x="0px" y="0px" viewBox="0 0 32 32" xml:space="preserve" inkscape:version="0.91 r13725" sodipodi:docname="google-plus-lower_gray.svg" width="32" height="32"><g id="g3" transform="matrix(0.26738921,0,0,0.26738921,1,1.0002677)" style="fill:#b3b3b3"><g id="g5" style="fill:#b3b3b3"><circle id="svg-button-google" style="fill:#b3b3b3" cx="56.098" cy="56.097" r="56.098" class="svg-button" /></g></g><g id="g20" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g22" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g24" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g26" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g28" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g30" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g32" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g34" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g36" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g38" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g40" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g42" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g44" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g46" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g48" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g11" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g13" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g15" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g17" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g19" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g21" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g23" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g25" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g27" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g29" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g31" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g33" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g35" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g37" /><g transform="matrix(0.16252919,0,0,0.1625293,8.1346021,88.373391)" id="g39" /><g id="g3-9" transform="matrix(0.02751978,0,0,0.02647472,8.1842105,8.000003)" style="fill:#ffffff"><g id="google-plus" style="fill:#ffffff"><path d="m 516.375,255 0,-76.5 -51,0 0,76.5 -76.5,0 0,51 76.5,0 0,76.5 51,0 0,-76.5 76.5,0 0,-51 -76.5,0 z m -196.35,86.7 -28.051,-20.4 c -10.2,-7.649 -20.399,-17.85 -20.399,-35.7 0,-17.85 12.75,-33.15 25.5,-40.8 33.15,-25.5 66.3,-53.55 66.3,-109.65 0,-53.55 -33.15,-84.15 -51,-99.45 l 43.35,0 30.6,-35.7 -158.1,0 c -112.2,0 -168.3,71.4 -168.3,147.9 0,58.65 45.9,122.4 127.5,122.4 l 20.4,0 c -2.55,7.65 -10.2,20.4 -10.2,33.15 0,25.5 10.2,35.7 22.95,51 -35.7,2.55 -102,10.2 -150.45,40.8 -45.9,28.05 -58.65,66.3 -58.65,94.35 0,58.65 53.55,114.75 168.3,114.75 137.7,0 204.001,-76.5 204.001,-150.449 C 383.775,400.35 355.725,372.3 320.025,341.7 Z m -193.8,-232.05 c 0,-56.1 33.15,-81.6 68.85,-81.6 66.3,0 102,89.25 102,140.25 0,66.3 -53.55,79.05 -73.95,79.05 -63.75,0 -96.9,-79.05 -96.9,-137.7 z m 91.799,459 c -84.15,0 -137.7,-38.25 -137.7,-94.351 0,-56.1 51,-73.95 66.3,-81.6 33.15,-10.2 76.5,-12.75 84.15,-12.75 7.65,0 12.75,0 17.85,0 61.2,43.35 86.7,61.2 86.7,102 0,48.451 -48.449,86.701 -117.3,86.701 z" id="path6" inkscape:connector-curvature="0" style="fill:#ffffff" /></g></g></svg>
+					</a><a id="linkedin-share-button" class="share-button">
+						<svg version="1.1" id="Capa_4" x="0px" y="0px" viewBox="0 0 32 32" xml:space="preserve" inkscape:version="0.91 r13725" sodipodi:docname="linkedin_gray.svg" width="32" height="32"><g id="g3" transform="matrix(0.26738921,0,0,0.26738921,1,1.0002677)"><circle style="fill:#b3b3b3" cx="56.098" cy="56.097" r="56.098" id="svg-button-linkedin" class="svg-button" /><g id="g7"><path style="fill:#f1f2f2" d="m 89.616,60.611 0,23.128 -13.409,0 0,-21.578 c 0,-5.418 -1.936,-9.118 -6.791,-9.118 -3.705,0 -5.906,2.491 -6.878,4.903 -0.353,0.862 -0.444,2.059 -0.444,3.268 l 0,22.524 -13.41,0 c 0,0 0.18,-36.546 0,-40.329 l 13.411,0 0,5.715 c -0.027,0.045 -0.065,0.089 -0.089,0.132 l 0.089,0 0,-0.132 c 1.782,-2.742 4.96,-6.662 12.085,-6.662 8.822,0 15.436,5.764 15.436,18.149 l 0,0 z M 34.656,23.969 c -4.587,0 -7.588,3.011 -7.588,6.967 0,3.872 2.914,6.97 7.412,6.97 l 0.087,0 c 4.677,0 7.585,-3.098 7.585,-6.97 -0.089,-3.956 -2.908,-6.967 -7.496,-6.967 l 0,0 z m -6.791,59.77 13.405,0 0,-40.33 -13.405,0 0,40.33 z" id="path9" inkscape:connector-curvature="0" /></g></g><g id="g11" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g13" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g15" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g17" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g19" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g21" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g23" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g25" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g27" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g29" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g31" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g33" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g35" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g37" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /><g id="g39" transform="matrix(0.26738921,0,0,0.26738921,1,81.196267)" /></svg>
+					</a><a id="email-share-button" class="share-button">
+						<svg version="1.1" id="Capa_5" x="0px" y="0px" viewBox="0 0 32 32" xml:space="preserve" inkscape:version="0.91 r13725" sodipodi:docname="email_gray.svg" width="32" height="32"><g id="g3" transform="matrix(0.26738921,0,0,0.26738921,0.99973276,1.0000004)" style="fill:#b3b3b3"><circle style="fill:#b3b3b3" cx="56.098999" cy="56.098" r="56.098" id="svg-button-email" class="svg-button" /></g><g id="g11" /><g id="g13" /><g id="g15" /><g id="g17" /><g id="g19" /><g id="g21" /><g id="g23" /><g id="g25" /><g id="g27" /><g id="g29" /><g id="g31" /><g id="g33" /><g id="g35" /><g id="g37" /><g id="g39" /><g transform="matrix(1.1428571,0,0,1.1428571,8,8.0357148)" id="g3-3" style="fill:#ffffff"><g id="g5" style="fill:#ffffff"><path inkscape:connector-curvature="0" style="fill:#ffffff" d="M 7,9 5.268,7.484 0.316,11.729 C 0.496,11.896 0.739,12 1.007,12 l 11.986,0 c 0.267,0 0.509,-0.104 0.688,-0.271 L 8.732,7.484 7,9 Z" id="path7" /><path inkscape:connector-curvature="0" style="fill:#ffffff" d="M 13.684,2.271 C 13.504,2.103 13.262,2 12.993,2 L 1.007,2 C 0.74,2 0.498,2.104 0.318,2.273 L 7,8 13.684,2.271 Z" id="path9-6" /><polygon style="fill:#ffffff" points="0,2.878 0,11.186 4.833,7.079 " id="polygon11" /><polygon style="fill:#ffffff" points="9.167,7.079 14,11.186 14,2.875 " id="polygon13" /></g></g></svg>
+					</a>
+
+					<div style="clear: both; height: 0px;"></div>
+					<div class="hrDottedDark"></div>
+					<div style="clear: both; height: 25px;"></div>
+				</div>
+			</div><!--id="container-left-sidebar"-->
+
+			<div id="container-right-sidebar" class="container">
+				<nav id="nav-sidebar">
+					<ul>
+						<a class="js-ajax-link js-show-index" href="{{@blog.url}}"><li class="parentCategory">Blog</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/photos/"><li class="subCategory">Photos</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/projects/"><li class="subCategory">Projects</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/security/"><li class="subCategory">Security</li></a>
+						<a href="{{@blog.url}}/rss"><li class="subCategory">RSS</li></a><br>
+
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/code/"><li class="parentCategory">Code</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/algorithms/"><li class="subCategory">Algorithms</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/reference/"><li class="subCategory">Reference</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/scripting/"><li class="subCategory">Scripting</li></a><br>
+
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/linux/"><li class="parentCategory">Linux</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/ansible/"><li class="subCategory">Ansible</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/debian/"><li class="subCategory">Debian</li></a>
+						<a href="https://launchpad.net/~cjsheets"><li class="subCategory">Personal PPA</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/rhel/"><li class="subCategory">RedHat EL</li></a>
+					</ul>
+				</nav>
+
+				<div style="clear: both; height: 25px;"></div>
+				<div class="hrDottedDark"></div>
+				<div style="clear: both; height: 25px;"></div>
+
+			</div><!--id="container-right-sidebar"-->
+
+			<div style="clear:both;"></div>
+		</div>
+		<footer>
+			<div id="footer-copyright">
+				<a class="js-ajax-link" href="{{@blog.url}}/copyright">&copy; {{date format="YYYY"}} Chad Sheets</a><br>
+			</div>
+			<div id="footer-links">
+				<div style="width: 40px;" class="footer-not-mobile">&nbsp;</div>
+				<div class="footer-not-mobile"><a class="js-ajax-link" href="{{@blog.url}}/contact">Contact</a></div>
+				<div style="width: 40px;">&nbsp;</div>
+				<div><a class="js-ajax-link" href="{{@blog.url}}/about">About</a></div>
+				<div style="width: 40px;">&nbsp;</div>
+				<div><a class="js-ajax-link" href="{{@blog.url}}/privacy">Privacy</a></div>
+				<div style="width: 40px;" class="footer-not-mobile">&nbsp;</div>
+				<div class="footer-not-mobile"><a class="button-square button-jump-top js-jump-top" href="#">To the Top</a></div>
+			</div>
+		</footer>
+	</div><!--id="container-window"-->
+
+	{{ghost_foot}}
+
+</body>
+</html>

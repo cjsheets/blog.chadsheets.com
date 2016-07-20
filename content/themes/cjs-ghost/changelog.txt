@@ -1,0 +1,7 @@
+------------------------------
+CJS-Ghost Version 0.0.1
+------------------------------
+
+- AJAX loading based on Ghostwriter 1.9.3
+- Significant layout and navigation modifications
+- Adjusted to match previous wordpress blog style
