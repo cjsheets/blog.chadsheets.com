@@ -2,7 +2,7 @@
 
 
 This repository stores configuration files and themes for my personal [Ghost](https://ghost.org/) [blog](http://chadsheets.com). CJS-Ghost is the current theme and is a heavilly modified version of [Ghostwriter](https://github.com/roryg/ghostwriter). All code is released under the MIT License.
-Edit to trigger hook
+Edit to trigger hoo
 
 ### Features
 
