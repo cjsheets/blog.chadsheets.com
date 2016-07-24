@@ -16,4 +16,4 @@ This repository stores configuration files and themes for my personal [Ghost](ht
 
 * [Ghostwriter - Jolly Good Themes](http://jollygoodthemes.com)
 
-Somethin at the bottom
+Somethin
