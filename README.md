@@ -15,5 +15,3 @@ This repository stores configuration files and themes for my personal [Ghost](ht
 ### Attribution
 
 * [Ghostwriter - Jolly Good Themes](http://jollygoodthemes.com)
-
-Somethin
