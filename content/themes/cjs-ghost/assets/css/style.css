@@ -18,12 +18,12 @@ h1, h2, h3, h4, h5, h6 {
   font-family: "Titillium Web", arial, sans-serif;
   color: #14568a;
   text-decoration: none;
-  margin-bottom: 1em;
   font-weight: normal;
   text-transform: none; }
 
 h1 {
-  font-size: 200%; }
+  font-size: 200%;
+  margin: 1em 0em 0.5em; }
 
 h2 {
   font-size: 160%;
@@ -56,7 +56,7 @@ h6 {
   margin-bottom: 12px; }
 
 p {
-  line-height: 1.5em;
+  line-height: 1.6em;
   margin: 0 0 18px; }
 
 a {
@@ -65,7 +65,7 @@ a {
 
 ul, ol {
   list-style-position: outside;
-  line-height: 1.5em;
+  line-height: 1.6em;
   margin: 0 0 0px; }
   ul li, ol li {
     margin: 0 0 10px; }
@@ -516,15 +516,15 @@ input.searchButton {
    *  Page Body
    */ }
 
-div.contentPadding {
-  padding: 10px 25px 25px 25px;
+div.content-padding {
+  padding: 0px 25px 25px 25px;
   /** --  Page Body :: Post Excerpts --  **/ }
 
 .title-container {
   text-align: center;
   background-size: cover;
   display: block;
-  padding: 20px 0px; }
+  padding: 0px; }
 
 .title-text {
   color: #FFFFFF;
@@ -586,8 +586,7 @@ nav.post-navgation {
 
 .post-title {
   width: 100%;
-  padding: 0px;
-  margin-bottom: 0px; }
+  padding: 0px; }
 
 .post-information {
   font-size: 90%; }

@@ -11,7 +11,7 @@ $font_family_body: "Open Sans", verdana, sans-serif;
 
 $font_size_body: 100%;
 $font_color_body: #323232;
-$line_height_body: 1.5em;
+$line_height_body: 1.6em;
 $paragraph_bottom_margin: 18px;
 
 $font_size_h1: 200%;
@@ -59,12 +59,12 @@ html, body {
 	font-family: $font_family_heading;
 	color: $accent_blue_dark; 
 	text-decoration: none;
-	margin-bottom: $hr_margin;
 	font-weight: normal;
 	text-transform: none;
 	
 } h1 {
 	font-size: $font_size_h1;
+	margin: 1em 0em 0.5em;
 
 } h2 {
 	font-size: $font_size_h2;
@@ -590,8 +590,8 @@ pre ol li {
  *  Page Body
  */
 
-} div.contentPadding {
-	padding: 10px 25px 25px 25px;
+} div.content-padding {
+	padding: 0px 25px 25px 25px;
 
 /** --  Page Body :: Post Excerpts --  **/
 
@@ -599,7 +599,7 @@ pre ol li {
 	text-align: center;
 	background-size: cover;
 	display: block;
-	padding: 20px 0px;
+	padding: 0px;
 
 
 } .title-text {
@@ -666,7 +666,6 @@ pre ol li {
 } .post-title {
 	width: 100%;
 	padding: 0px;
-	margin-bottom: 0px;
 
 } .post-information {
 	font-size: 90%;
