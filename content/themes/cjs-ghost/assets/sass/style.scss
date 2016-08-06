@@ -667,6 +667,9 @@ pre ol li {
 	width: 100%;
 	padding: 0px;
 
+} article.post {
+	padding-bottom: 100px;
+
 } .post-information {
 	font-size: 90%;
 
@@ -856,6 +859,7 @@ pre ol li {
 
 } .tail-sig-container {
 	width: 100%;
+	height: 160px;
 	border-top: 1px solid $hr_color;
 	margin: 50px 0px 0px;
 	padding: 0px;
