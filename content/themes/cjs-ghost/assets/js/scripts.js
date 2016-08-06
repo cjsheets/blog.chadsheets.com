@@ -173,6 +173,7 @@ $postIndex.hide();
 // Show the index if the url has "page" in it (a simple
 // way of checking if we're on a paginated page.)
 if (window.location.pathname.indexOf('page') === 1 || window.location.pathname.indexOf('tag') === 1) {
+    console.log('Called Pagination Test')
     $latestPost.hide();
     $postIndex.show();
 }
@@ -183,6 +184,7 @@ if ( ! History.enabled) {
 }
 
 History.Adapter.bind(window, 'statechange', function() {
+    console.log('Called History.Adapter')
     var State = History.getState();
 
     // Get the requested url and replace the current content

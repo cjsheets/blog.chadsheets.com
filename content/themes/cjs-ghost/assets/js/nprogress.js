@@ -12,6 +12,7 @@
   }
 
 })(this, function() {
+  console.log('Called NProgress')
   var NProgress = {};
 
   NProgress.version = '0.2.0';
