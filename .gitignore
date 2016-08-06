@@ -25,3 +25,5 @@ content/themes/cjs-ghost/*
 
 !/content/themes/cjs-ghost/*
 
+# Ignore the following specific files
+/content/themes/cjs-ghost/assets/css/style.css.map
