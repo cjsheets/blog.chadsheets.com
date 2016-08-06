@@ -6,6 +6,8 @@ $( window ).load(function() {
   initPostStubs();
 });
 
+//$(".post-content").fitVids();
+
 $('#social-sidebar').mouseover(function() {
 $('svg').find('#svg-button-facebook').stop()
   .animate({'stroke-dashoffset': 0}, 1000)
@@ -27,7 +29,7 @@ $('svg').find('.svg-button').stop()
   .animate({'stroke-dashoffset': 900}, 1000)
   .css({'fill': '#b3b3b3', 'transition': 'fill 0.5s'});
 });
-
+// Optional, Hiding sidebar
 // $('.share-button-in').hide();
 // $('#social-sidebar').mouseover(function() {
 //   $('.share-button-out').hide();
@@ -38,7 +40,6 @@ $('svg').find('.svg-button').stop()
 // });
 
 
-$(".post-content").fitVids();
 
 /** ============================
  *  `To The Top` Link
@@ -238,6 +239,7 @@ $('body').on('click', '.js-ajax-link, .pagination a, .post-tags a, .post-header 
 
 // Handle hyperlink ajax requests
 function ajaxClick(thisObj, eObj) {
+    console.log('Called ajaxClick ' + thisObj)
     eObj.preventDefault();
     $('#search-field').val('');
 
@@ -257,8 +259,8 @@ function ajaxClick(thisObj, eObj) {
         
         // If the requested url is not the current states url push
         // the new state and make the ajax call.
-        if (url !== currentState.url.replace(/\/$/, "")) {
-            console.log(url + '!=' + currentState.url.replace(/\/$/, ""))
+        if (url.replace(/\/$/, "") !== currentState.url.replace(/\/$/, "")) {
+            console.log(url.replace(/\/$/, "") + '!=' + currentState.url.replace(/\/$/, ""))
             console.log('Changing URL Parameters')
             loading = true;
 
@@ -310,7 +312,7 @@ function ajaxClick(thisObj, eObj) {
         }
     }
 }
-});
+
 
 
 /**
@@ -369,3 +371,5 @@ PR['registerLangHandler'](
 ]), ['yaml', 'yml']);
 
 
+
+});
