@@ -6,26 +6,27 @@
 
 <div class="post-stub" style="display: table;">
 	<div style="display: table-row">
-		<div style="width: 125px;
-  background: url('{{asset "images/post-icon-Script.png"}}') no-repeat center center;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;" class="post-stub-image">
-<a class="js-ajax-link" title="{{title}} | {{@blog.title}}" href="{{url}}" style="display: block">
-&nbsp;</a>		</div>
-		<div style="display: table-cell; padding: 0px 10px;">
+
+		<div style="display: table-cell; padding: 0px 10px;" class="post-stub-left">
 			<div class="post-stub-content">
 			<time style="float: right; color: #999999; font-size: 90%;" datetime="{{published_at}}">{{date format="DD-MMM-YYYY"}}</time>
 				<h4>{{title}}</h4>
 				<p>{{excerpt characters="180"}}</p>
 				<!--{{tags limit="1"}}-->
-				<a href="#">Continue Reading</a>
+				<a class="js-ajax-link" title="{{title}} | {{@blog.title}}" href="{{url}}">Continue Reading</a>
 
 
 			</div>
-			<div style="width: 3px; background-color: 0000FF; float: right"></div>
-		</div>
+		</div>{{#foreach tags}}{{#if @first}}
+				<div style="width: 125px;
+  background: url('{{image}}') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;" class="post-stub-image post-stub-right">
+    <a href="{{url}}">&nbsp;</a>
+
+</div>{{/if}}{{/foreach}}
 	</div>
 </div>
 
