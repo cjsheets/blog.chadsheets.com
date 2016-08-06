@@ -532,22 +532,27 @@ div.content-padding {
   font-size: 50px;
   /** --  Page Body :: Post List --  **/ }
 
+ol.post-list {
+  padding: 0px 10px; }
+
 hr.post-loop {
-  margin: 0px;
+  margin: 10px 0px;
   padding: 0em; }
 
 .post-stub {
-  padding: 0px 28px 15px;
+  padding: 0px;
   border: 2px solid #FFFFFF; }
+
+div.post-stub-image {
+  display: none; }
 
 .post-stub-content {
   float: left;
-  clear: none;
-  width: calc(100% - 95px); }
+  clear: none; }
 
 .post-stub-content h4 {
   margin: 0px;
-  padding: 1em 0em 0.5em; }
+  padding: 0.5em 0em; }
 
 .post-stub-content p {
   color: #323232;
@@ -811,6 +816,9 @@ div.footer-not-mobile {
    *  MediaQueries
    */ }
 
+@media screen and (min-width: 1000px) {
+  div.post-stub-image {
+    display: table-cell; } }
 @media screen and (min-width: 600px) {
   span.siteLogo {
     float: left; }

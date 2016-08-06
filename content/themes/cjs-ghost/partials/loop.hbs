@@ -4,22 +4,29 @@
 
 {{#foreach posts}}
 
-<div class="post-stub">
-	<a class="js-ajax-link" title="{{title}} | {{@blog.title}}" href="{{url}}">
-		<div class="post-stub-date-container">
-			<div>
-				<time class="post-stub-day" datetime="{{published_at}}">{{date format="DD"}}</time>
-				<time class="post-stub-mm-yyyy" datetime="{{published_at}}">{{date format="MMM"}}</time>
-				<time class="post-stub-mm-yyyy" datetime="{{published_at}}">{{date format="YYYY"}}</time>
-			</div>
-		</div>
-		<div class="post-stub-content">
+<div class="post-stub" style="display: table;">
+	<div style="display: table-row">
+		<div style="width: 125px;
+  background: url('{{asset "images/post-icon-Script.png"}}') no-repeat center center;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;" class="post-stub-image">
+<a class="js-ajax-link" title="{{title}} | {{@blog.title}}" href="{{url}}" style="display: block">
+&nbsp;</a>		</div>
+		<div style="display: table-cell; padding: 0px 10px;">
+			<div class="post-stub-content">
+			<time style="float: right; color: #999999; font-size: 90%;" datetime="{{published_at}}">{{date format="DD-MMM-YYYY"}}</time>
 				<h4>{{title}}</h4>
-			<p>{{excerpt characters="180"}}</p>
+				<p>{{excerpt characters="180"}}</p>
+				<!--{{tags limit="1"}}-->
+				<a href="#">Continue Reading</a>
+
+
+			</div>
+			<div style="width: 3px; background-color: 0000FF; float: right"></div>
 		</div>
-		<div style="width: 3px; background-color: 0000FF; float: right"></div>
-	<div style="clear:both;"></div>
-	</a>
+	</div>
 </div>
 
 <hr class="post-loop">
