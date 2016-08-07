@@ -185,6 +185,7 @@ if ( ! History.enabled) {
 
 History.Adapter.bind(window, 'statechange', function() {
     var State = History.getState();
+        console.log('Called History.Adapter')
 
     // Get the requested url and replace the current content
     // with the loaded content
@@ -336,6 +337,7 @@ function updateSocialLinks() {
   $('#google-share-button, #google-share-button-tail').attr("href", "https://plus.google.com/share?url=http%3A%2F%2Fchadsheets.com" + window.location.pathname.replace(/\//g,"%2F"));
   $('#twitter-share-button, #twitter-share-button-tail').attr("href", "https://twitter.com/intent/tweet/?text=" + document.title.replace(/ /g,"%20") + ";&url=http%3A%2F%2Fchadsheets.com" + window.location.pathname.replace(/\//g,"%2F"));
   $('#linkedin-share-button, #linkedin-share-button-tail').attr("href", "https://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Fchadsheets.com" + window.location.pathname.replace(/\//g,"%2F") + "&title=" + document.title.replace(/ /g,"%20") + "&summary=" + document.title.replace(/ /g,"%20") + "&source=http%3A%2F%2Fchadsheets.com");
+  $('#email-share-button, #email-share-button-tail').attr("href", "mailto:?to=&body=Check out this article: " + document.title.replace(/ /g,"%20") + " http%3A%2F%2Fchadsheets.com" + window.location.pathname.replace(/\//g,"%2F") + ",&subject=Thought you would be interested in this site");
 }
 
 function initPostStubs() {
