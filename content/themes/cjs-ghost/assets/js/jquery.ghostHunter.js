@@ -28,6 +28,7 @@
 		onKeyUp 			: false,
 		result_template 	: "<a href='{{link}}'><p><h2>{{title}}</h2><h4>{{prettyPubDate}}</h4></p></a>",
 		info_template		: "<p>Number of posts found: {{amount}}</p>",
+		tail_template		: "",
 		displaySearchInfo 	: true,
 		zeroResultsInfo		: true,
 		before 				: false,
@@ -52,6 +53,7 @@
 			this.blogData 			= {};
 			this.result_template 	= opts.result_template;
 			this.info_template 		= opts.info_template;
+			this.tail_template 		= opts.tail_template;
 			this.zeroResultsInfo 	= opts.zeroResultsInfo;
 			this.displaySearchInfo  = opts.displaySearchInfo;
 			this.before 			= opts.before;
@@ -157,6 +159,7 @@
 				results.append(this.format(this.result_template,postData));
 				resultsData.push(postData);
 			}
+			results.append(this.format(this.tail_template));
 
 			if(this.onComplete) {
 				this.onComplete(resultsData);

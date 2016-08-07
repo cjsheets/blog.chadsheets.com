@@ -111,7 +111,7 @@ var searchField = $("#search-field").ghostHunter({
     result_template     : '<ol class="search-list"><div class="post-stub"><div><div class="post-stub-content"><time datetime="{{pubDate}}">{{pubDate}}</time>' +
                             '<h4>{{title}}</h4><p>{{description}}</p><a class="js-ajax-link" title="{{title}} | {{@blog.title}}" href="{{link}}">Continue Reading</a>' +
                             '</div></div></div></ol><hr class="post-loop">',
-    info_template       : "<div style='width: auto; height: 50px; overflow: auto;'>&nbsp;</div><div class='search-header'><h1 class='post-title'>Site Search</h1><p>Found: {{amount}} post(s), searching for <b><span id='searching-for'></span></b></p></div><hr class='post-loop'>",
+    info_template       : "<div class='title-spacer' style=''>&nbsp;</div><div class='search-header'><h2 class='search-title'>Site Search</h2><p>Found: {{amount}} post(s), searching for <b><span id='searching-for'></span></b></p></div><hr class='post-loop'>",
     tail_template   : "<p class='search-return-link'><a href='#' id='return-to-page'>Return to Previous Page</a></p>",
 });
 

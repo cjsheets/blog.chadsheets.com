@@ -612,6 +612,11 @@ pre ol li {
 	text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5); 
 	font-size: 50px;
 
+} .title-spacer {
+	width: auto;
+	height: 48px;
+	overflow: auto;
+
 
 /** --  Page Body :: Post List --  **/
 
@@ -728,9 +733,15 @@ pre ol li {
 } ol.search-list .post-stub div .post-stub-content {
 	display: table-cell;
 
-} .search-header {
-	padding: 10px 25px; 
+} .search-header p {
+	padding: 25px 25px 15px;
+	margin: 0px
 
+} .search-title {
+	float: right;
+	padding: 0px;
+	margin: 0.2em 1em;
+	border-top: 0px;
 
 } .search-return-link {
 	margin: 20px 25px; 
