@@ -141,9 +141,17 @@ $('#search-field').keyup(function() {
 $('#search-field').focusout(function() {
     if( ! $(this).val() ) {
         searchResultContainer = "hidden";
-        $('.container-search').fadeOut(300, function() {
-           $('.container-post').fadeIn(300);
-         });
+        if(window.location.href == 'http://chadsheets.com/' || window.location.href == 'https://chadsheets.com/') {
+        console.log('Home')
+            $('.container-search').fadeOut(300, function() {
+               $('.post-index').fadeIn(300);
+             });
+        } else {
+            console.log('not Home')
+            $('.container-search').fadeOut(300, function() {
+               $('.latest-post').fadeIn(300);
+             });
+        }
     }
 });
 

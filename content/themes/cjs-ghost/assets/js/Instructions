@@ -6,24 +6,5 @@ Add prettyPrint(); to the end of the $ajaxContainer.fadeOut(500, function() {
 
 /* ghosthunter */
 
-	$.fn.ghostHunter.defaults = {
-		results 			: false,
-		onKeyUp 			: false,
-		result_template 	: "<a href='{{link}}'><p><h2>{{title}}</h2><h4>{{prettyPubDate}}</h4></p></a>",
-		info_template		: "<p>Number of posts found: {{amount}}</p>",
-		tail_template		: "",
-...
-			this.result_template 	= opts.result_template;
-			this.info_template 		= opts.info_template;
-			this.tail_template 		= opts.tail_template;
-...
-
-			for (var i = 0; i < searchResult.length; i++)
-			{
-				var lunrref		= searchResult[i].ref;
-				var postData  	= this.blogData[lunrref];
-				results.append(this.format(this.result_template,postData));
-				resultsData.push(postData);
-			}
-			results.append(this.format(this.tail_template));
+ - Add 3 entries for tail_template
 
