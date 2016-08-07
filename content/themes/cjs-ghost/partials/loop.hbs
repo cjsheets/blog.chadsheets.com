@@ -6,8 +6,8 @@
 		<div class="post-stub-content">
 			<time datetime="{{published_at}}">{{date format="DD-MMM-YYYY"}}</time>
 			<h4>{{title}}</h4>
-			<p>{{excerpt characters="180"}}</p>
-			<a class="js-ajax-link" title="{{title}} | {{@blog.title}}" href="{{url}}">Continue Reading</a>
+			<p>{{excerpt characters="220"}}...
+			<a class="js-ajax-link" title="{{title}} | {{@blog.title}}" href="{{url}}">&nbsp;</a></p>
 		</div>{{#foreach tags}}{{#if @first}}
 		<div style="background-image: url('{{image}}');" class="post-stub-tag-img">
 		    <a href="{{url}}">&nbsp;</a>
