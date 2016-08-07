@@ -3,6 +3,7 @@
  */
 
 $accent_blue_dark: #14568a;
+$accent_blue_medium_dark: #29688f;
 $accent_blue_medium: #417a97;
 $background_blue_light: #f5f8fa;
 
@@ -101,7 +102,7 @@ html, body {
 	margin: 0 0 $paragraph_bottom_margin;
 
 } a {
-	color: $accent_blue_medium;
+	color: $accent_blue_medium_dark;
 	text-decoration: none;
 
 } ul, ol {
@@ -611,7 +612,7 @@ pre ol li {
 /** --  Page Body :: Post List --  **/
 
 } ol.post-list {
-padding: 0px 10px;
+	padding: 0px 10px;
 
 } hr.post-loop {
 	margin: 10px 0px;
@@ -703,6 +704,21 @@ padding: 0px 10px;
 	overflow:hidden; /* IE6 patch */
 
 
+} ol.search-list {
+	padding: 0px 10px;
+	width: auto; 
+
+} ol.search-list .post-stub {
+	display: table;
+	padding: 0px 10px 0px 15px;
+	border: 2px solid #FFFFFF;
+	width: 95%;
+
+} ol.search-list .post-stub div {
+	display: table-row;
+
+} ol.search-list .post-stub div .post-stub-content {
+	display: table-cell;
 
 } .search-header {
 	padding: 10px 25px; 

@@ -108,13 +108,14 @@ var searchField = $("#search-field").ghostHunter({
     rss         : "rss.xml",
     //Enable the "search as you type" by uncommenting the following line
     onKeyUp   : true,
-    result_template     : "<div class='post-stub'> <a class='js-ajax-link' title='{{title}}' href='{{link}}'>" +
-        "<div class='post-stub-date-container'> <div><time class='post-stub-mm-yyyy' datetime='{{pubDate}}'>{{pubDate}}</time></div> </div> " +
-        "<div class='post-stub-content'> <h4>{{title}}</h4> <p>{{description}}</p> </div> " +
-        "<div style='width: 3px; background-color: 0000FF; float: right'></div> <div style='clear:both;'></div> </a> </div> <hr class='post-loop'>",
+    result_template     : '<ol class="search-list"><div class="post-stub"><div><div class="post-stub-content"><time datetime="{{pubDate}}">{{pubDate}}</time>' +
+                            '<h4>{{title}}</h4><p>{{description}}</p><a class="js-ajax-link" title="{{title}} | {{@blog.title}}" href="{{link}}">Continue Reading</a>' +
+                            '</div></div></div></ol><hr class="post-loop">',
     info_template       : "<div style='width: auto; height: 50px; overflow: auto;'>&nbsp;</div><div class='search-header'><h1 class='post-title'>Site Search</h1><p>Found: {{amount}} post(s), searching for <b><span id='searching-for'></span></b></p></div><hr class='post-loop'>",
     tail_template   : "<p class='search-return-link'><a href='#' id='return-to-page'>Return to Previous Page</a></p>",
 });
+
+
 
 
 $('#search-field').val('');
@@ -127,6 +128,7 @@ $('#search-field').keyup(function() {
         searchResultContainer = "visible";
         $('.container-post').fadeOut(300, function() {
            $('.container-search').fadeIn(300);
+           initPostStubs();
         });
          $('#searching-for').text($(this).val());
          $('#return-to-page').click(function() {

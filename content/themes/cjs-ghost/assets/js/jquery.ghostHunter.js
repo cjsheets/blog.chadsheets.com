@@ -24,10 +24,10 @@
 	 
 	$.fn.ghostHunter.defaults = {
 		results 			: false,
+		onPageLoad		: false,
 		onKeyUp 			: false,
 		result_template 	: "<a href='{{link}}'><p><h2>{{title}}</h2><h4>{{prettyPubDate}}</h4></p></a>",
 		info_template		: "<p>Number of posts found: {{amount}}</p>",
-		tail_template		: "",
 		displaySearchInfo 	: true,
 		zeroResultsInfo		: true,
 		before 				: false,
@@ -52,7 +52,6 @@
 			this.blogData 			= {};
 			this.result_template 	= opts.result_template;
 			this.info_template 		= opts.info_template;
-			this.tail_template 		= opts.tail_template;
 			this.zeroResultsInfo 	= opts.zeroResultsInfo;
 			this.displaySearchInfo  = opts.displaySearchInfo;
 			this.before 			= opts.before;
@@ -69,9 +68,13 @@
 			    this.ref('id')
 			});
 
-			target.focus(function(){
+			if ( opts.onPageLoad ) {
 				that.loadAPI();
-			});
+			} else {
+				target.focus(function(){
+					that.loadAPI();
+				});
+			}
 
 			target.closest("form").submit(function(e){
 				e.preventDefault();
@@ -79,7 +82,6 @@
 			});
 
 			if( opts.onKeyUp ) {
-				that.loadAPI();
 				target.keyup(function() {
 					that.find(target.val());
 				});
@@ -105,6 +107,7 @@
             		var tag_arr = arrayItem.tags.map(function(v) {
 	    			return v.name; // `tag` object has an `name` property which is the value of tag. If you also want other info, check API and get that property
 	    			})
+            		if(arrayItem.meta_description == null) { arrayItem.meta_description = '' };
 	    			var category = tag_arr.join(", ");
 	    			if (category.length < 1){
 	    			category = "undefined";
@@ -154,7 +157,6 @@
 				results.append(this.format(this.result_template,postData));
 				resultsData.push(postData);
 			}
-			results.append(this.format(this.tail_template));
 
 			if(this.onComplete) {
 				this.onComplete(resultsData);

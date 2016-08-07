@@ -60,7 +60,7 @@ p {
   margin: 0 0 18px; }
 
 a {
-  color: #417a97;
+  color: #29688f;
   text-decoration: none; }
 
 ul, ol {
@@ -620,6 +620,22 @@ div.hrDottedDark {
   border-bottom: 1px dotted #999999;
   overflow: hidden;
   /* IE6 patch */ }
+
+ol.search-list {
+  padding: 0px 10px;
+  width: auto; }
+
+ol.search-list .post-stub {
+  display: table;
+  padding: 0px 10px 0px 15px;
+  border: 2px solid #FFFFFF;
+  width: 95%; }
+
+ol.search-list .post-stub div {
+  display: table-row; }
+
+ol.search-list .post-stub div .post-stub-content {
+  display: table-cell; }
 
 .search-header {
   padding: 10px 25px; }
