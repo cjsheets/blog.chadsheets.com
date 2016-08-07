@@ -184,12 +184,12 @@ if ( ! History.enabled) {
 }
 
 History.Adapter.bind(window, 'statechange', function() {
-    console.log('Called History.Adapter')
     var State = History.getState();
 
     // Get the requested url and replace the current content
     // with the loaded content
     $.get(State.url, function(result) {
+        console.log('Called History.Adapter, URL loaded, processing.')
         var $html = $(result);
         var $newContent = $('#container-ajax', $html).contents();
 
@@ -228,6 +228,7 @@ History.Adapter.bind(window, 'statechange', function() {
         });
     }).fail(function() {
         // Request fail
+        console.log('Called History.Adapter, FAILED, attempting reload.')
         NProgress.done();
         location.reload();
     });
@@ -250,6 +251,16 @@ function ajaxClick(thisObj, eObj) {
         var url = thisObj.attr('href');
         var title = thisObj.attr('title') || null;
 
+        //if url is missing http or the domain, correct it
+    if (url.indexOf("http", 0) === -1) {
+      console.log('Current URL missing http: ' + url)
+      if (url.search("chadsheets.com") === -1) {
+        url = "http://chadsheets.com" + url;
+      } else {
+        url = "http://" + url;
+      }
+    }
+
         //if url starts with http:// and currentState.url starts with
         // https://, replace the protocol in url
         if (url.indexOf("http://", 0) === 0)
@@ -262,8 +273,7 @@ function ajaxClick(thisObj, eObj) {
         // If the requested url is not the current states url push
         // the new state and make the ajax call.
         if (url.replace(/\/$/, "") !== currentState.url.replace(/\/$/, "")) {
-            console.log(url.replace(/\/$/, "") + '!=' + currentState.url.replace(/\/$/, ""))
-            console.log('Changing URL Parameters')
+            console.log('Changing URL Parameters because: ' + url.replace(/\/$/, "") + '!=' + currentState.url.replace(/\/$/, ""))
             loading = true;
 
             // Check if we need to show the post index after we've

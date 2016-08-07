@@ -23,7 +23,7 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {
   font-size: 200%;
-  margin: 1em 0em 0.5em; }
+  margin: 0.5em 0em 0.5em; }
 
 h2 {
   font-size: 160%;
@@ -590,7 +590,13 @@ div.post-stub-image {
 
 nav.post-navgation {
   padding: 10px 25px;
-  font-size: 85%;
+  font-size: 85%; }
+
+nav.pagination {
+  float: right;
+  padding: 15px 25px;
+  font-size: 90%;
+  color: #323232;
   /** --  Page Body :: Post Content --  **/ }
 
 .post-title {

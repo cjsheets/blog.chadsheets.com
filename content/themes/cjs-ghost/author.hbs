@@ -1,32 +1,34 @@
 {{!< default}}
 
-<div id="container-content"  class="container">
+<div id="container-content"  class="container"> <!-- author -->
 	<div id="container-ajax" class="container">
 		<section class="container-search"></section>
 		<section class="container-post latest-post">
-
+{{#author}}
+{{! No indention to prevent handlebars indenting <pre> tag content}}
+{{> masthead}}
 <div class="author-profile">
-	{{#author}}
-		<div class="author-heading">
-			{{#if image}}
-				<img class="author-avatar" src="{{image}}" width="50" height="50" alt="{{name}}">
-			{{/if}}
 
-			<h1 class="author-name">{{name}}</h1>
-		</div>
-
-		<div class="author-meta">
-			<span><i class="fa fa-bar-chart-o"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
-			{{#if location}}<span><i class="fa fa-map-marker"></i>{{location}}</span>{{/if}}
-			{{#if website}}<span><i class="fa fa-link"></i><a href="{{website}}">{{website}}</a></span>{{/if}}
-			<span><i class="fa fa-rss-square"></i><a href="{{url}}rss/">{{name}}</a></span>
-		</div>
-
-		{{#if bio}}
-			<p class="author-bio">{{bio}}</p>
+	<div class="author-heading">
+		{{#if image}}
+			<img class="author-avatar" src="{{image}}" width="50" height="50" alt="{{name}}">
 		{{/if}}
-	{{/author}}
+
+		<h1 class="author-name"><span style="color:#000000;">Posts By:</span> {{name}}</h1>
+	</div>
+
+	<div class="author-meta">
+		<span><i class="fa fa-bar-chart-o"></i> {{plural ../pagination.total empty='No posts' singular='% post' plural='% posts'}}</span>
+		{{#if location}}<span><i class="fa fa-map-marker"></i>{{location}}</span>{{/if}}
+		{{#if website}}<span><i class="fa fa-link"></i><a href="{{website}}">{{website}}</a></span>{{/if}}
+		<span><i class="fa fa-rss-square"></i><a href="{{url}}rss/">{{name}}</a></span>
+	</div>
+
+	{{#if bio}}
+		<p class="author-bio">{{bio}}</p>
+	{{/if}}
 </div>
+{{/author}}
 
 
 {{> loop}}
