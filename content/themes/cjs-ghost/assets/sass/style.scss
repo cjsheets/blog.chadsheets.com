@@ -20,6 +20,7 @@ $font_size_h2: 160%;
 $font_size_h3: 130%;
 $font_color_hx: #323232;
 
+$link_color_dark_grey: #444444;
 $link_color_grey: #666666;
 $link_color_light_grey: #999999;
 
@@ -602,6 +603,9 @@ pre ol li {
 	display: block;
 	padding: 0px;
 
+} .title-container img {
+	padding: 0px;
+	margin: 0px;
 
 } .title-text {
 	color: #FFFFFF;
@@ -671,19 +675,23 @@ pre ol li {
 } .post-title {
 	width: 100%;
 	padding: 0px;
-
-} article.post {
-	padding-bottom: 100px;
-
-} .post-information {
-	font-size: 90%;
+	margin-bottom: 0px;
 
 } .post-information, 
   .post-information a {
+	font-size: 14px;
+	font-style: italic;
 	color: $link_color_light_grey;
-	margin-top: 0.2em;
-	margin-bottom: 1em;
+	margin-top: 0em;
+	margin-bottom: 1.4em;
 	padding: 0px;
+
+} .post-information-dark, 
+  .post-information-dark a {
+	color: $link_color_dark_grey;
+
+} article.post {
+	padding-bottom: 100px;
 
 } ul.bulletList {
 	list-style: disc;

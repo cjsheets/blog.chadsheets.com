@@ -526,6 +526,10 @@ div.content-padding {
   display: block;
   padding: 0px; }
 
+.title-container img {
+  padding: 0px;
+  margin: 0px; }
+
 .title-text {
   color: #FFFFFF;
   text-shadow: 4px 4px 4px rgba(0, 0, 0, 0.5);
@@ -590,20 +594,24 @@ nav.pagination {
 
 .post-title {
   width: 100%;
-  padding: 0px; }
-
-article.post {
-  padding-bottom: 100px; }
-
-.post-information {
-  font-size: 90%; }
+  padding: 0px;
+  margin-bottom: 0px; }
 
 .post-information,
 .post-information a {
+  font-size: 14px;
+  font-style: italic;
   color: #999999;
-  margin-top: 0.2em;
-  margin-bottom: 1em;
+  margin-top: 0em;
+  margin-bottom: 1.4em;
   padding: 0px; }
+
+.post-information-dark,
+.post-information-dark a {
+  color: #444444; }
+
+article.post {
+  padding-bottom: 100px; }
 
 ul.bulletList {
   list-style: disc; }
