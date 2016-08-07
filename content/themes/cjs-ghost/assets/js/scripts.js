@@ -341,21 +341,21 @@ function updateSocialLinks() {
 }
 
 function initPostStubs() {
-    $('.post-stub-left').mouseover(function() {
+    $('.post-stub-content').mouseover(function() {
       $(this).css('cursor','pointer')
       $(this).attr('href', $(this).find("a:first").attr("href"))
-      $(this).css('border-left', '2px solid #417a97')
+      $(this).parent().parent().css('border-left', '2px solid #417a97')
       $(this).click(function(e){ ajaxClick( $(this), e ) })
-    }); $('.post-stub-left').mouseout(function() {
-      $(this).css('border-left', '2px solid #FFFFFF')
+    }); $('.post-stub-content').mouseout(function() {
+      $(this).parent().parent().css('border-left', '2px solid #FFFFFF')
     });
-    $('.post-stub-right').mouseover(function() {
+    $('.post-stub-tag-img').mouseover(function() {
       $(this).css('cursor','pointer')
       $(this).attr('href', $(this).find("a:first").attr("href"))
-      $(this).css('border-right', '2px solid #417a97')
+      $(this).parent().parent().css('border-right', '2px solid #417a97')
       $(this).click(function(e){ ajaxClick( $(this), e ) })
-    }); $('.post-stub-right').mouseout(function() {
-      $(this).css('border-right', '2px solid #FFFFFF')
+    }); $('.post-stub-tag-img').mouseout(function() {
+      $(this).parent().parent().css('border-right', '2px solid #FFFFFF')
     });
 }
 

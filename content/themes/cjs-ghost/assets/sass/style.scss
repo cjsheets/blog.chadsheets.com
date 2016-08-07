@@ -618,19 +618,25 @@ padding: 0px 10px;
 	padding: 0em;
 
 } .post-stub {
-	padding: 0px;
+	padding: 0px 10px 0px 15px;
 	border: 2px solid #FFFFFF;
+	display: table;
 
-} .post-stub-left, .post-stub-right {
-	padding: 0px 10px;;
-	border: 2px solid #FFFFFF;
+} .post-stub div {
+	display: table-row;
 
-} div.post-stub-image {
+} .post-stub-content, .post-stub-tag-img {
+	display: table-cell;
+
+} div.post-stub-tag-img {
 	display: none;
-
-} .post-stub-content {
-	float: left;
-	clear: none;
+	width: 125px;
+	background-repeat: no-repeat;
+	background-position: center center;
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
 
 } .post-stub-content h4 {
 	margin: 0px;
@@ -641,30 +647,13 @@ padding: 0px 10px;
 	margin: 0px;
 	padding-top: 0px;
 	padding-bottom: 0.5em;
+	padding-right: 25px;
 
-} .post-stub-date-container {
-	width: 70px;
-	float: left;
-	clear: none;
-
-} .post-stub-date-container div {
-	background-color: $accent_blue_dark;
-	border: 1px solid $accent_blue_dark;
-	border-radius: 3px;
-	box-shadow: 0 2px 3px 0 rgba(0, 0, 0, 0.25);
-	color: white;
-	line-height: 1;
-	padding: 0.1em;
-	text-align: center;
-	width: 40px;
-	z-index: 2;
-	margin-top: 30px;
-
-} .post-stub-mm-yyyy {
-	font-size: 0.8em;
-
-} .post-stub-day {
-	font-size: 1.2em;
+} .post-stub-content time {
+	float: right;
+	color: #999999;
+	font-size: 90%;
+	padding-right: 25px;
 
 } nav.post-navgation {
 	padding: 10px 25px;
@@ -928,7 +917,7 @@ padding: 0px 10px;
  */
 
 } @media screen and (min-width:1000px) {
-	  div.post-stub-image {
+	  div.post-stub-tag-img {
 		display: table-cell;
 	} 
 
