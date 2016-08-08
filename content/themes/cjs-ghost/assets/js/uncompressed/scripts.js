@@ -267,7 +267,7 @@ $('body').on('click', '.js-ajax-link, .pagination a, .post-tags a, .post-header 
 function ajaxClick(thisObj, eObj) {
     eObj.preventDefault();
     console.log('Called ajaxClick ' + thisObj)
-    $('#right-sidebar-copyright').hide();
+    $('#right-sidebar-copyright').fadeOut(300);
     $('#search-field').val('');
 
     if (loading === false) {
@@ -392,7 +392,15 @@ function initPostStubs() {
 
 function checkForCopyright() {
   if ( $('img.image-copyright').length ) {
-    $('#image-attribution').text($('img.image-copyright').data('creator'));
+    if( $('img.image-copyright').data('copyright-holder') ) {
+      $('#image-description').html('Photo &copy;');
+      $('#image-description').attr('href', 'https://creativecommons.org/licenses/by-sa/2.0/');
+      $('#image-attribution').text($('img.image-copyright').data('copyright-holder'));
+    } else {
+      $('#image-description').text('Photo from');
+      $('#image-description').attr('href', $('img.image-copyright').data('url'));
+      $('#image-attribution').text($('img.image-copyright').data('image-attribution'));
+    }
     $('#image-attribution').attr('href', $('img.image-copyright').data('url'));
     $('#right-sidebar-copyright').fadeIn(300);
   }

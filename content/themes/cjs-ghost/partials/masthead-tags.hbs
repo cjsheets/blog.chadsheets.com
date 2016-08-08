@@ -5,9 +5,29 @@
   <img src="{{image}}">
 </div>
 {{else}}
+{{#has tag="Blog"}}
+<div id="title-container" class="title-container">
+	<img src="{{asset "images/masthead-blog.png"}}" class="image-copyright" data-image-attribution="Cabinda, Angola" data-url="https://chadsheets.com/about/">
+</div>
+{{else}}
+{{#has tag="Photos"}}
+<div id="title-container" class="title-container">
+	<img src="{{asset "images/masthead-photo.png"}}" class="image-copyright" data-image-attribution="Wasilla, AK" data-url="https://chadsheets.com/about/">
+</div>
+{{else}}
+{{#has tag="Projects"}}
+<div id="title-container" class="title-container">
+	<img src="{{asset "images/masthead-project.png"}}">
+</div>
+{{else}}
 {{#has tag="Ansible"}}
 <div id="title-container" class="title-container">
-	<img src="{{asset "images/masthead-ansible.png"}}">
+	<img src="{{asset "images/masthead-ansible.png"}}"" class="image-copyright" data-copyright-holder="Paulo Brandao" data-url="https://www.flickr.com/photos/paulobrandao/">
+</div>
+{{else}}
+{{#has tag="Security"}}
+<div id="title-container" class="title-container">
+	<img src="{{asset "images/masthead-security.png"}}" class="image-copyright" data-copyright-holder="Ian Stannard" data-url="https://www.flickr.com/photos/silly_little_man/">
 </div>
 {{else}}
 {{#has tag="Debian"}}
@@ -25,38 +45,23 @@
 	<img src="{{asset "images/masthead-linux.png"}}">
 </div>
 {{else}}
-{{#has tag="Algorithms"}}
-<div id="title-container" class="title-container">
-	<img src="{{asset "images/masthead-algorithm.png"}}">
-</div>
-{{else}}
 {{#has tag="Scripting"}}
 <div id="title-container" class="title-container">
-	<img src="{{asset "images/masthead-script.png"}}" class="image-copyright" data-creator="Camila Sepúlveda" data-url="https://www.flickr.com/photos/akane2011/">
+	<img src="{{asset "images/masthead-script.png"}}" class="image-copyright" data-copyright-holder="Camila Sepúlveda" data-url="https://www.flickr.com/photos/akane2011/">
 </div>
 {{else}}
-{{#has tag="Security"}}
+{{#has tag="Algorithms"}}
 <div id="title-container" class="title-container">
-	<img src="{{asset "images/masthead-security.png"}}">
+	<img src="{{asset "images/masthead-algorithm.png"}}" class="image-copyright" data-copyright-holder="x6e38" data-url="https://www.flickr.com/photos/x6e38/">
 </div>
 {{else}}
-{{#has tag="Projects"}}
+{{#has tag="Code"}}
 <div id="title-container" class="title-container">
-	<img src="{{asset "images/masthead-project.png"}}">
-</div>
-{{else}}
-{{#has tag="Photos"}}
-<div id="title-container" class="title-container">
-	<img src="{{asset "images/masthead-photo.png"}}">
-</div>
-{{else}}
-{{#has tag="Blog"}}
-<div id="title-container" class="title-container">
-	<img src="{{asset "images/masthead-blog.png"}}">
+	<img src="{{asset "images/masthead-code.png"}}">
 </div>
 {{else}}
 <div class="title-spacer">&nbsp;</div>
-{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}
+{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}
 {{/if}}
 {{/if}}
 {{/foreach}}
