@@ -47,7 +47,6 @@ $('svg').find('.svg-button').stop()
 
 $('.js-jump-top').on('click', function(e) {
     e.preventDefault();
-
     $('html, body').animate({'scrollTop': 0});
 });
 
@@ -116,14 +115,25 @@ var searchField = $("#search-field").ghostHunter({
 });
 
 $('#search-field').val('');
-$('.container-search').hide();
-$('.container-search').prop('visible', false);
+$('section.container-search').hide();
+$('section.container-search').prop('visible', false);
 
 $('#search-field').keyup(function() {
     if( $(this).val() ) {
-        $('.container-post').fadeOut(300, function() {
-           $('.container-search').fadeIn(300);
-           $('.container-search').prop('visible', true);
+
+		if($('section.container-post').is(":visible")){
+			if($('section.latest-post').is(":visible")){
+				console.log('Hid: latest-post')
+				$('section.container-search').prop('replaced-latest-post', true);
+			} else {
+				console.log('Hid: post-index')
+				$('section.container-search').prop('replaced-latest-post', false);
+			}
+		}
+
+        $('section.container-post').fadeOut(300, function() {
+           $('section.container-search').fadeIn(300);
+           $('section.container-search').prop('visible', true);
            initPostStubs();
         });
          $('#searching-for').text($(this).val());
@@ -134,21 +144,24 @@ $('#search-field').keyup(function() {
 
     }
 });
+
+
 $('#search-field').focusout(function() {
     if( ! $(this).val() ) {
-        if(window.location.href == 'http://chadsheets.com/' || window.location.href == 'https://chadsheets.com/') {
-        console.log('Home')
-            $('.container-search').fadeOut(300, function() {
-               $(this).prop('visible', false);
-               $('.post-index').fadeIn(300);
-             });
-        } else {
-            console.log('not Home')
-            $('.container-search').fadeOut(300, function() {
-               $(this).prop('visible', false);
-               $('.latest-post').fadeIn(300);
-             });
-        }
+    	console.log('Search field is: focus-out')
+		if($('section.container-search').prop('replaced-latest-post')){
+			console.log('Fade-In: latest-post')
+			$('section.container-search').fadeOut(300, function() {
+				$(this).prop('visible', false);
+				$('.latest-post').fadeIn(300);
+			});
+		} else {
+			console.log('Fade-In: post-index')
+			$('section.container-search').fadeOut(300, function() {
+				$(this).prop('visible', false);
+				$('section.post-index').fadeIn(300);
+			});
+		}
     }
 });
 
@@ -171,7 +184,7 @@ var loading = false;
 var showIndex = false;
 var $ajaxContainer = $('#container-ajax');
 var $latestPost = $('.latest-post');
-var $postIndex = $('.post-index');
+var $postIndex = $('section.post-index');
 
 // Initially hide the index and show the latest post
 $latestPost.show();
@@ -208,7 +221,7 @@ History.Adapter.bind(window, 'statechange', function() {
 
         $ajaxContainer.fadeOut(500, function() {
             $latestPost = $newContent.filter('.latest-post');
-            $postIndex = $newContent.filter('.post-index');
+            $postIndex = $newContent.filter('section.post-index');
 
             if (showIndex === true) {
                 $latestPost.hide();
@@ -218,7 +231,7 @@ History.Adapter.bind(window, 'statechange', function() {
             }
 
             // Re run fitvid.js
-            $newContent.fitVids();
+            //$newContent.fitVids();
 
             $ajaxContainer.html($newContent);
             $ajaxContainer.fadeIn(500);
@@ -232,7 +245,7 @@ History.Adapter.bind(window, 'statechange', function() {
             updateSocialLinks();
             initPostStubs();
             $latestPost = $('.latest-post');
-            $postIndex = $('.post-index');
+            $postIndex = $('section.post-index');
         });
     }).fail(function() {
         // Request fail
@@ -297,12 +310,20 @@ function ajaxClick(thisObj, eObj) {
         } else {
             // Swap in the latest post or post index as needed
 
-            if ($('.container-search').prop('visible')) {
-                $('.container-search').fadeOut(300, function() {
-                    $(this).prop('visible', false);
-                    $('.container-post').fadeIn(300);
-                });
+            if ($('section.container-search').prop('visible')) {
+					if($('section.container-search').prop('replaced-latest-post')){
+						$('section.container-search').fadeOut(300, function() {
+							$(this).prop('visible', false);
+							$('.latest-post').fadeIn(300);
+						});
+					} else {
+						$('section.container-search').fadeOut(300, function() {
+							$(this).prop('visible', false);
+							$('section.post-index').fadeIn(300);
+						});
+					}
             }
+
 
             if (thisObj.hasClass('js-show-index')) {
                 console.log('Same url, link contained js-show-index')
