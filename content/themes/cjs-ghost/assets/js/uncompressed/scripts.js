@@ -5,6 +5,7 @@ $( window ).load(function() {
   updateSocialLinks();
   initPostStubs();
   checkForCopyright();
+  initializeLightbox();
 });
 
 //$(".post-content").fitVids();
@@ -404,6 +405,15 @@ function checkForCopyright() {
     $('#image-attribution').attr('href', $('img.image-copyright').data('url'));
     $('#right-sidebar-copyright').fadeIn(300);
   }
+}
+
+function initializeLightbox() {
+    lightbox.option({
+      'disableScrolling': true,
+      'positionFromTop': 75,
+      'resizeDuration': 500,
+      'wrapAround': true
+    })
 }
 
 /**

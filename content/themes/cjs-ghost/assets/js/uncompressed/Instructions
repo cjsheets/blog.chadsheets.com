@@ -27,3 +27,8 @@ Add prettyPrint(); to the end of the $ajaxContainer.fadeOut(500, function() {
 /* history.js */
 
 	- uses scripts/bundled-uncompressed/html4+html5/jquery.history.js
+
+
+/*  */
+Photo hosting:
+ - http://drive.google.com/uc?export=view&id=FILEID
