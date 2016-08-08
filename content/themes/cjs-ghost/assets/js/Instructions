@@ -1,4 +1,9 @@
-    /* Ajax Loading */
+/* Compression */
+
+	- prettify must be compressed on its own due to loading early
+
+
+/* Ajax Loading */
 
 Add prettyPrint(); to the end of the $ajaxContainer.fadeOut(500, function() {
 
@@ -7,4 +12,7 @@ Add prettyPrint(); to the end of the $ajaxContainer.fadeOut(500, function() {
 /* ghosthunter */
 
  - Add 3 entries for tail_template
+
+
+/* history.js */
 
