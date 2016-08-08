@@ -115,19 +115,15 @@ var searchField = $("#search-field").ghostHunter({
     tail_template   : "<p class='search-return-link'><a href='#' id='return-to-page'>Return to Previous Page</a></p>",
 });
 
-
-
-
 $('#search-field').val('');
-
 $('.container-search').hide();
-var searchResultContainer = "hidden";
+$('.container-search').prop('visible', false);
 
 $('#search-field').keyup(function() {
     if( $(this).val() ) {
-        searchResultContainer = "visible";
         $('.container-post').fadeOut(300, function() {
            $('.container-search').fadeIn(300);
+           $('.container-search').prop('visible', true);
            initPostStubs();
         });
          $('#searching-for').text($(this).val());
@@ -140,15 +136,16 @@ $('#search-field').keyup(function() {
 });
 $('#search-field').focusout(function() {
     if( ! $(this).val() ) {
-        searchResultContainer = "hidden";
         if(window.location.href == 'http://chadsheets.com/' || window.location.href == 'https://chadsheets.com/') {
         console.log('Home')
             $('.container-search').fadeOut(300, function() {
+               $(this).prop('visible', false);
                $('.post-index').fadeIn(300);
              });
         } else {
             console.log('not Home')
             $('.container-search').fadeOut(300, function() {
+               $(this).prop('visible', false);
                $('.latest-post').fadeIn(300);
              });
         }
@@ -300,9 +297,9 @@ function ajaxClick(thisObj, eObj) {
         } else {
             // Swap in the latest post or post index as needed
 
-            if (searchResultContainer == "visible") {
-                searchResultContainer = "hidden"
+            if ($('.container-search').prop('visible')) {
                 $('.container-search').fadeOut(300, function() {
+                    $(this).prop('visible', false);
                     $('.container-post').fadeIn(300);
                 });
             }
@@ -393,7 +390,6 @@ PR['registerLangHandler'](
       [PR['PR_KEYWORD'], /^[\w-]+:[ \r\n]/],
       [PR['PR_PLAIN'], /^\w+/]
 ]), ['yaml', 'yml']);
-
 
 
 });
