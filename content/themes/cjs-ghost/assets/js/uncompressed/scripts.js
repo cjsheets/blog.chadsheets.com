@@ -4,6 +4,7 @@ $( window ).load(function() {
   prettyPrint();
   updateSocialLinks();
   initPostStubs();
+  checkForCopyright();
 });
 
 //$(".post-content").fitVids();
@@ -244,6 +245,7 @@ History.Adapter.bind(window, 'statechange', function() {
             prettyPrint();
             updateSocialLinks();
             initPostStubs();
+            checkForCopyright();
             $latestPost = $('.latest-post');
             $postIndex = $('section.post-index');
         });
@@ -263,8 +265,9 @@ $('body').on('click', '.js-ajax-link, .pagination a, .post-tags a, .post-header 
 
 // Handle hyperlink ajax requests
 function ajaxClick(thisObj, eObj) {
-    console.log('Called ajaxClick ' + thisObj)
     eObj.preventDefault();
+    console.log('Called ajaxClick ' + thisObj)
+    $('#right-sidebar-copyright').hide();
     $('#search-field').val('');
 
     if (loading === false) {
@@ -387,6 +390,13 @@ function initPostStubs() {
     });
 }
 
+function checkForCopyright() {
+  if ( $('img.image-copyright').length ) {
+    $('#image-attribution').text($('img.image-copyright').data('creator'));
+    $('#image-attribution').attr('href', $('img.image-copyright').data('url'));
+    $('#right-sidebar-copyright').fadeIn(300);
+  }
+}
 
 /**
  * GitHub style code box. Registers a language handler for YAML.

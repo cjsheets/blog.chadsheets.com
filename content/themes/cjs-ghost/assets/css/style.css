@@ -464,7 +464,15 @@ input.searchField {
 
 input.searchButton {
   float: right;
-  margin: 0px;
+  margin: 0px; }
+
+#right-sidebar-copyright,
+#right-sidebar-copyright a:link,
+#right-sidebar-copyright a:visited,
+#right-sidebar-copyright a:hover {
+  font-size: 12px;
+  color: #444444;
+  text-decoration: none;
   /** --  Right-Sidebar :: Social Media Buttons --  **/ }
 
 #social-sidebar {

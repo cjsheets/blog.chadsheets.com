@@ -6,6 +6,10 @@
 #| Run this command in the uncompressed directory:
 rm -f to-compress.js; rm -f scripts.min.js; sed '/var n=new t.Index;return/d' ./jquery.ghostHunter.modified.js > to-compress.js; sed '/console.log(/d' ./scripts.js >> to-compress.js; cat lunr.js jquery.history.js nprogress.js >> to-compress.js; uglifyjs --compress --mangle -- to-compress.js >> scripts.min.js; rm -f to-compress.js
 
+#| Run this command in the uncompressed directory: (Debug On)
+rm -f to-compress.js; rm -f scripts.min.js; sed '/var n=new t.Index;return/d' ./jquery.ghostHunter.modified.js > to-compress.js; cat lunr.js jquery.history.js nprogress.js >> to-compress.js; uglifyjs --compress --mangle -- to-compress.js >> scripts.min.js; rm -f to-compress.js
+
+
 #| Run this command for prettify:
 uglifyjs --compress --mangle -- to-prettify.js >> prettify.min.js
 
