@@ -27,3 +27,4 @@ content/themes/cjs-ghost/*
 
 # Ignore the following specific files
 /content/themes/cjs-ghost/assets/css/style.css.map
+/content/themes/cjs-ghost/assets/images/xcf
