@@ -12,17 +12,22 @@
 {{else}}
 {{#has tag="Photos"}}
 <div id="title-container" class="title-container">
-	<img src="{{asset "images/masthead-photo.png"}}" class="image-copyright" data-image-attribution="Wasilla, AK" data-url="https://chadsheets.com/about/">
+	<img src="{{asset "images/masthead-photo.png"}}" class="image-copyright" data-image-attribution="Oak Alley, LA" data-url="https://chadsheets.com/about/">
 </div>
 {{else}}
 {{#has tag="Projects"}}
 <div id="title-container" class="title-container">
-	<img src="{{asset "images/masthead-project.png"}}">
+	<img src="{{asset "images/masthead-project.png"}}" class="image-copyright" data-image-attribution="Wasilla, AK" data-url="https://chadsheets.com/about/">
 </div>
 {{else}}
 {{#has tag="Ansible"}}
 <div id="title-container" class="title-container">
 	<img src="{{asset "images/masthead-ansible.png"}}"" class="image-copyright" data-copyright-holder="Paulo Brandao" data-url="https://www.flickr.com/photos/paulobrandao/">
+</div>
+{{else}}
+{{#has tag="Python"}}
+<div id="title-container" class="title-container">
+	<img src="{{asset "images/masthead-python.png"}}" class="image-copyright" data-copyright-holder="Luke Jones" data-url="https://www.flickr.com/photos/befuddledsenses/">
 </div>
 {{else}}
 {{#has tag="Security"}}
@@ -32,7 +37,7 @@
 {{else}}
 {{#has tag="Debian"}}
 <div id="title-container" class="title-container">
-	<img src="{{asset "images/masthead-debian.png"}}">
+	<img src="{{asset "images/masthead-debian.png"}}" class="image-copyright" data-copyright-holder="Sergio Rodríguez" data-url="https://www.flickr.com/photos/kharkoma/">
 </div>
 {{else}}
 {{#has tag="RHEL"}}
@@ -61,7 +66,8 @@
 </div>
 {{else}}
 <div class="title-spacer">&nbsp;</div>
-{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}
+{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}
+{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}{{/has}}
 {{/if}}
 {{/if}}
 {{/foreach}}
