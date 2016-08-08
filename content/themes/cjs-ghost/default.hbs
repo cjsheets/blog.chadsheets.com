@@ -20,7 +20,8 @@
 	<link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
 	<link rel="stylesheet" type="text/css" href="{{asset "css/githubv2.min.css"}}" />
 	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700|Titillium+Web:400" rel="stylesheet" /> 
-	<script src="{{asset "js/uncompressed/prettify.js"}}"></script>
+	<!-- <script src="{{asset "js/uncompressed/prettify.js"}}"></script> -->
+	<script src="{{asset "js/prettify.min.js"}}"></script>
 
 	{{ghost_head}}
 </head>
@@ -159,16 +160,16 @@
 
 	{{ghost_foot}}
 
-<!-- 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
- -->
+	<!--## Production Scripts ##-->
+ 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+	<script type="text/javascript" src="{{asset "js/scripts.min.js"}}"></script>
 
-	<script type="text/javascript" src="{{asset "js/uncompressed/jquery-1.12.3.min.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/uncompressed/jquery.history.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/uncompressed/nprogress.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/uncompressed/jquery.fitvids.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/uncompressed/jquery.ghostHunter.modified.js"}}"></script>
-	<script type="text/javascript" src="{{asset "js/uncompressed/scripts.js"}}"></script>
-	
+	<!--## Development Scripts ##-->
+<!-- 	<script type="text/javascript" src="{{asset "js/uncompressed/jquery-1.12.3.min.js"}}"></script>
+ 	<script type="text/javascript" src="{{asset "js/uncompressed/jquery.history.js"}}"></script>
+ 	<script type="text/javascript" src="{{asset "js/uncompressed/nprogress.js"}}"></script>
+ 	<script type="text/javascript" src="{{asset "js/uncompressed/jquery.ghostHunter.modified.js"}}"></script>
+	<script type="text/javascript" src="{{asset "js/uncompressed/scripts.js"}}"></script> -->
 
 </body>
 </html>
