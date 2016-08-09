@@ -723,9 +723,16 @@ blockquote.output {
   background: #FFFFFF;
   border: 1px solid #666666;
   /** --  Page Body :: Social Media Buttons --  **/
-  /**
-   *  Comments  !!  Needs review to determine what can be removed
-   */ }
+  /** --  Page Body :: Error Messages --  **/ }
+
+.error-content {
+  padding: 0px 25px; }
+
+h1.error-code {
+  margin-bottom: 0px; }
+
+h4.error-description {
+  padding-top: 0px; }
 
 div.commentsContainer ul {
   padding: 0px;

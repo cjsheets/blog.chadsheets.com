@@ -1,6 +1,6 @@
 /* Preload images */
 body:after {
-  content: url(../images/close.png) url(../images/loading.gif) url(../images/prev.png) url(../images/next.png);
+  content: url(/assets/images/lightbox-close.png) url(/assets/images/lightbox-loading.gif) url(/assets/images/lightbox-prev.png) url(/assets/images/lightbox-next.png);
   display: none;
 }
 

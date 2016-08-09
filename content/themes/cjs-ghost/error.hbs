@@ -15,13 +15,20 @@
 
 	{{! Styles }}
 	<link rel="shortcut icon" type="image/x-icon" href="{{asset "/favicon.ico"}}" />
-	<link rel="stylesheet" type="text/css" href="{{asset "css/normalize.css"}}" />
-	<link rel="stylesheet" type="text/css" href="{{asset "css/nprogress.css"}}" />
-	<link rel="stylesheet" type="text/css" href="{{asset "css/style.css"}}" />
-	<link rel="stylesheet" type="text/css" href="{{asset "css/githubv2.min.css"}}" />
-	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700|Titillium+Web:400" rel="stylesheet" /> 
-	<script src="{{asset "js/prettify.js"}}"></script>
+	<!--## Production Style ##-->
+	<link rel="stylesheet" type="text/css" href="{{asset "css/style.min.css"}}" />
 
+	<!--## Development Style ##-->
+<!-- 	<link rel="stylesheet" type="text/css" href="{{asset "css/uncompressed/normalize.css"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset "css/uncompressed/nprogress.css"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset "css/uncompressed/lightbox.css"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset "css/uncompressed/style.css"}}" />
+	<link rel="stylesheet" type="text/css" href="{{asset "css/uncompressed/githubv2.min.css"}}" /> -->
+
+	<link href="https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700|Titillium+Web:400" rel="stylesheet" /> 
+	<!-- <script type="text/javascript" src="{{asset "js/uncompressed/prettify.js"}}"></script> -->
+<!-- 	<script type="text/javascript" src="{{asset "js/prettify.min.js"}}"></script>
+ -->
 	{{ghost_head}}
 </head>
 <body class="{{body_class}}">
@@ -47,11 +54,11 @@
 								</li>
 								<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1990"><a href="#" class="expand"></a><a class="js-ajax-link js-show-index" href="{{@blog.url}}">Posts</a>
 									<ul class="sub-menu">
-										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3002"><a class="js-ajax-link js-show-index" href="{{@blog.url}}">Blog</a></li>
-										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1994"><a class="js-ajax-link" href="{{@blog.url}}/tag/linux/">Linux</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-3002"><a class="js-ajax-link js-show-index" href="{{@blog.url}}">All</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1994"><a class="js-ajax-link" href="{{@blog.url}}/tag/blog/">Blog</a></li>
 										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1992"><a class="js-ajax-link" href="{{@blog.url}}/tag/photos/">Photos</a></li>
-										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1991"><a class="js-ajax-link" href="{{@blog.url}}/tag/scripts/">Script</a></li>
-										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1991"><a class="js-ajax-link" href="">Tags</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1991"><a class="js-ajax-link" href="{{@blog.url}}/tag/projects/">Projects</a></li>
+										<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1991"><a href="{{@blog.url}}/rss">RSS</a></li>
 									</ul>
 								</li>
 							</ul>
@@ -64,71 +71,63 @@
 		</header>
 		<div id="container-body"> <!-- old id container-ajax  class="container"-->
 			<div id="container-mobile-menu">
-				<div style="height: 55px; background: #FFFFFF;"><!-- Integrate into Menu css-->
+				<div class="mobile-title-spacer"><!-- Integrate into Menu css-->
 				</div>
 				<div class="mobile-menu">
 					<nav class="mobile-menu-border">
 						<ul>
-							<a class="js-ajax-link js-show-index mobile-menu-link" href="{{@blog.url}}"><li>Blog</li></a>
-							<a class="js-ajax-link mobile-menu-link" class="js-ajax-link" class="js-ajax-link" href="{{@blog.url}}/tag/code/"><li>Code</li></a>
-							<a class="js-ajax-link mobile-menu-link" class="js-ajax-link" href="{{@blog.url}}/tag/linux/"><li>Linux</li></a>
-							<a class="js-ajax-link mobile-menu-link" href="{{@blog.url}}/about"><li>About</li></a>
+							<a class="js-ajax-link js-show-index mobile-menu-link" href="{{@blog.url}}"><li>All</li></a>
+							<a class="js-ajax-link mobile-menu-link" class="js-ajax-link" class="js-ajax-link" href="{{@blog.url}}/tag/blog/"><li>Blog</li></a>
+							<a class="js-ajax-link mobile-menu-link" class="js-ajax-link" href="{{@blog.url}}/tag/code/"><li>Linux</li></a>
+							<a class="js-ajax-link mobile-menu-link" href="{{@blog.url}}/about/"><li>About</li></a>
 						</ul>
 					</nav>
 				</div>
 			</div>
 
+			<div id="container-content"  class="container">
+				<div id="container-ajax" class="container">
+					<div class="latest-post container-post">
+						<div id="content-padding" >
+						
+						<div class="title-spacer">&nbsp;</div>
+			                <section class="error-content error-404 js-error-container">
+			                  <section class="error-details">
+			                    <section class="error-message">
+			                      <h1 class="error-code">Error: {{code}}</h1>
+			                      <h4 class="error-description">{{message}}</h4>
+			                      <p>It appears something went wrong. The issue was logged and will be reviewed. In the meantime
+			                      you're welcome to visit the front page or any categories to the right.</p>
+			                      <a class="error-link" href="{{@blog.url}}">Go to the front page →</a>
+			                    </section>
+			                  </section>
+			                </section>
+			                {{#if stack}}
+			                  <section class="error-stack">
+			                    <h3>Stack Trace</h3>
+			                    <p><strong>{{message}}</strong></p>
+			                    <ul class="error-stack-list">
+			                      {{#each stack}}
+			                        <li>
+			                          at
+			                          {{#if function}}<em class="error-stack-function">{{function}}</em>{{/if}}
+			                          <span class="error-stack-file">({{at}})</span>
+			                        </li>
+			                      {{/each}}
+			                    </ul>
+			                  </section>
+			                {{/if}}
 
-<!-- - - - - - - - - - - - - 
-	Copy default.hbs
-	  - remove search menu
-	  - remove footer <script>
-	  - add error report into body
- - - - - - - - - - - - - - - -->
-<div id="container-content"  class="container">
-	<div id="container-ajax" class="container">
-		<div class="latest-post container-post">
-			<div id="content-padding" >
+			<div style="height: 500px;"></div>
 
-                <section class="error-content error-404 js-error-container">
-                  <section class="error-details">
-                    <section class="error-message">
-                      <h1 class="error-code">Error: {{code}}</h1>
-                      <h4 class="error-description">{{message}}</h4>
-                      <p>It appears something went wrong. The issue was logged and will be reviewed. In the meantime
-                      you're welcome to visit the front page or any categories to the right.</p>
-                      <a class="error-link" href="{{@blog.url}}">Go to the front page →</a>
-                    </section>
-                  </section>
-                </section>
-                {{#if stack}}
-                  <section class="error-stack">
-                    <h3>Stack Trace</h3>
-                    <p><strong>{{message}}</strong></p>
-                    <ul class="error-stack-list">
-                      {{#each stack}}
-                        <li>
-                          at
-                          {{#if function}}<em class="error-stack-function">{{function}}</em>{{/if}}
-                          <span class="error-stack-file">({{at}})</span>
-                        </li>
-                      {{/each}}
-                    </ul>
-                  </section>
-                {{/if}}
-
-<div style="height: 500px;"></div>
-
-			</div>
-		</div>
-	</div><!--id="container-ajax"-->
-</div><!--id="container-content"-->
-
-
+						</div>
+					</div>
+				</div><!--id="container-ajax"-->
+			</div><!--id="container-content"-->
 
 			<div id="container-left-sidebar" class="container">
 				<div id="social-sidebar">
-					<div style="clear: both; height: 5px;"></div>
+<!-- 					<div style="clear: both; height: 5px;"></div>
 					<div class="hrDottedDark"></div>
 					<div style="clear: both; height: 15px;"></div>
 
@@ -146,35 +145,45 @@
 
 					<div style="clear: both; height: 0px;"></div>
 					<div class="hrDottedDark"></div>
-					<div style="clear: both; height: 25px;"></div>
+					<div style="clear: both; height: 25px;"></div> -->
 				</div>
 			</div><!--id="container-left-sidebar"-->
 
 			<div id="container-right-sidebar" class="container">
 				<nav id="nav-sidebar">
 					<ul>
-						<a class="js-ajax-link js-show-index" href="{{@blog.url}}"><li class="parentCategory">Blog</li></a>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/photos/"><li class="subCategory">Photos</li></a>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/projects/"><li class="subCategory">Projects</li></a>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/security/"><li class="subCategory">Security</li></a>
-						<a href="{{@blog.url}}/rss"><li class="subCategory">RSS</li></a><br>
-
 						<a class="js-ajax-link" href="{{@blog.url}}/tag/code/"><li class="parentCategory">Code</li></a>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/algorithms/"><li class="subCategory">Algorithms</li></a>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/reference/"><li class="subCategory">Reference</li></a>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/scripting/"><li class="subCategory">Scripting</li></a><br>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/ansible/"><li class="subCategory">Ansible</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/scripting/"><li class="subCategory">Scripting</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/python/"><li class="subCategory">Python</li></a><br>
 
 						<a class="js-ajax-link" href="{{@blog.url}}/tag/linux/"><li class="parentCategory">Linux</li></a>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/ansible/"><li class="subCategory">Ansible</li></a>
 						<a class="js-ajax-link" href="{{@blog.url}}/tag/debian/"><li class="subCategory">Debian</li></a>
-						<a href="https://launchpad.net/~cjsheets"><li class="subCategory">Personal PPA</li></a>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/rhel/"><li class="subCategory">RedHat EL</li></a>
+						<a href="https://launchpad.net/~cjsheets"><li class="subCategory">My PPA</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/rhel/"><li class="subCategory">RedHat</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/security/"><li class="subCategory">Security</li></a>
 					</ul>
 				</nav>
 
 				<div style="clear: both; height: 25px;"></div>
 				<div class="hrDottedDark"></div>
 				<div style="clear: both; height: 25px;"></div>
+
+<!-- 				<div id="searchBox">
+					<form id="searchform" action="#" method="get" role="search">
+						<input id="search-field" class="searchField"></input>
+						<input id="searchsubmit" class="searchButton" width="25" type="image" height="23" alt="Search" src="/assets/images/site-spacer.png" type="submit" value="search"></input>
+					</form>
+				</div> --><!--id="searchBox"-->
+
+<!-- 				<div style="clear: both; height: 25px;"></div>
+				<div class="hrDottedDark"></div>
+				<div style="clear: both; height: 20px;"></div>
+
+				<div id="right-sidebar-copyright">
+					<a id="image-description" href="#" target="_blank"></a>
+					<a id="image-attribution" href="#" target="_blank"></a>
+				</div> -->
 
 			</div><!--id="container-right-sidebar"-->
 
@@ -198,6 +207,18 @@
 	</div><!--id="container-window"-->
 
 	{{ghost_foot}}
+
+	<!--## Production Scripts ##-->
+<!--  	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.3/jquery.min.js"></script>
+	<script type="text/javascript" src="{{asset "js/scripts.min.js"}}"></script> -->
+
+	<!--## Development Scripts ##-->
+<!-- 	<script type="text/javascript" src="{{asset "js/uncompressed/jquery-1.12.3.min.js"}}"></script>
+ 	<script type="text/javascript" src="{{asset "js/uncompressed/jquery.history.js"}}"></script>
+ 	<script type="text/javascript" src="{{asset "js/uncompressed/nprogress.js"}}"></script>
+ 	<script type="text/javascript" src="{{asset "js/uncompressed/jquery.ghostHunter.modified.js"}}"></script>
+	<script type="text/javascript" src="{{asset "js/uncompressed/lightbox.js"}}"></script>
+	<script type="text/javascript" src="{{asset "js/uncompressed/scripts.js"}}"></script> -->
 
 </body>
 </html>

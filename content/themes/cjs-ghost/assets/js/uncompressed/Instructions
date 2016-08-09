@@ -1,17 +1,26 @@
+/* Push to Master Steps */
+	1. Enable Disqus
+	2. Compress CSS and JS
+	3. Toggle Comments in default.hbs
+
 /* Compression */
 
 	- prettify must be compressed on its own due to loading early
 	- lunar compressed must be removed from ghosthunter, lunar included uncompressed in scripts
 
 #| Run this command in the uncompressed directory:
-rm -f to-compress.js; rm -f scripts.min.js; sed '/var n=new t.Index;return/d' ./jquery.ghostHunter.modified.js > to-compress.js; sed '/console.log(/d' ./scripts.js >> to-compress.js; cat lunr.js jquery.history.js nprogress.js >> to-compress.js; uglifyjs --compress --mangle -- to-compress.js >> scripts.min.js; rm -f to-compress.js
+rm -f to-compress.js; rm -f scripts.min.js; sed '/var n=new t.Index;return/d' ./jquery.ghostHunter.modified.js > to-compress.js; sed '/console.log(/d' ./scripts.js >> to-compress.js; cat lunr.js jquery.history.js nprogress.js lightbox.js >> to-compress.js; uglifyjs --compress --mangle -- to-compress.js >> scripts.min.js; rm -f to-compress.js
 
 #| Run this command in the uncompressed directory: (Debug On)
-rm -f to-compress.js; rm -f scripts.min.js; sed '/var n=new t.Index;return/d' ./jquery.ghostHunter.modified.js > to-compress.js; cat lunr.js jquery.history.js nprogress.js >> to-compress.js; uglifyjs --compress --mangle -- to-compress.js >> scripts.min.js; rm -f to-compress.js
-
+rm -f to-compress.js; rm -f scripts.min.js; sed '/var n=new t.Index;return/d' ./jquery.ghostHunter.modified.js > to-compress.js; cat lunr.js jquery.history.js nprogress.js lightbox.js >> to-compress.js; uglifyjs --compress --mangle -- to-compress.js >> scripts.min.js; rm -f to-compress.js
 
 #| Run this command for prettify:
 uglifyjs --compress --mangle -- to-prettify.js >> prettify.min.js
+
+
+#| Run this command in uncompressed CSS directory
+rm -f to-compress.css;rm -f style.min.css;cat normalize.css nprogress.css lightbox.css style.css githubv2.min.css >> to-compress.css;uglifycss to-compress.css >> style.min.css;rm -f to-compress.css
+
 
 /* Ajax Loading */
 
@@ -29,6 +38,59 @@ Add prettyPrint(); to the end of the $ajaxContainer.fadeOut(500, function() {
 	- uses scripts/bundled-uncompressed/html4+html5/jquery.history.js
 
 
-/*  */
+/* lightbox */
 Photo hosting:
  - http://drive.google.com/uc?export=view&id=FILEID
+
+
+/* SASS */
+sass --watch sass/style.scss:css/uncompressed/style.css
+
+/* Error Page */
+	Copy default.hbs
+	  - comment out search menu and attribution code
+	  - comment prettyprint <script>
+	  - comment out all footer <script>
+	  - comment out contents of social-sidebar
+	  - add error report into body:
+			<div id="container-content"  class="container">
+				<div id="container-ajax" class="container">
+					<div class="latest-post container-post">
+						<div id="content-padding" >
+
+						<div class="title-spacer">&nbsp;</div>
+			                <section class="error-content error-404 js-error-container">
+			                  <section class="error-details">
+			                    <section class="error-message">
+			                      <h1 class="error-code">Error: {{code}}</h1>
+			                      <h4 class="error-description">{{message}}</h4>
+			                      <p>It appears something went wrong. The issue was logged and will be reviewed. In the meantime
+			                      you're welcome to visit the front page or any categories to the right.</p>
+			                      <a class="error-link" href="{{@blog.url}}">Go to the front page →</a>
+			                    </section>
+			                  </section>
+			                </section>
+			                {{#if stack}}
+			                  <section class="error-stack">
+			                    <h3>Stack Trace</h3>
+			                    <p><strong>{{message}}</strong></p>
+			                    <ul class="error-stack-list">
+			                      {{#each stack}}
+			                        <li>
+			                          at
+			                          {{#if function}}<em class="error-stack-function">{{function}}</em>{{/if}}
+			                          <span class="error-stack-file">({{at}})</span>
+			                        </li>
+			                      {{/each}}
+			                    </ul>
+			                  </section>
+			                {{/if}}
+
+			<div style="height: 500px;"></div>
+
+						</div>
+					</div>
+				</div><!--id="container-ajax"-->
+			</div><!--id="container-content"-->
+
+
