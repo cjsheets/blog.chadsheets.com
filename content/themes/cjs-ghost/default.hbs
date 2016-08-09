@@ -66,15 +66,15 @@
 		</header>
 		<div id="container-body"> <!-- old id container-ajax  class="container"-->
 			<div id="container-mobile-menu">
-				<div style="height: 55px; background: #FFFFFF;"><!-- Integrate into Menu css-->
+				<div class="mobile-title-spacer"><!-- Integrate into Menu css-->
 				</div>
 				<div class="mobile-menu">
 					<nav class="mobile-menu-border">
 						<ul>
-							<a class="js-ajax-link js-show-index mobile-menu-link" href="{{@blog.url}}"><li>Blog</li></a>
-							<a class="js-ajax-link mobile-menu-link" class="js-ajax-link" class="js-ajax-link" href="{{@blog.url}}/tag/code/"><li>Code</li></a>
-							<a class="js-ajax-link mobile-menu-link" class="js-ajax-link" href="{{@blog.url}}/tag/linux/"><li>Linux</li></a>
-							<a class="js-ajax-link mobile-menu-link" href="{{@blog.url}}/about"><li>About</li></a>
+							<a class="js-ajax-link js-show-index mobile-menu-link" href="{{@blog.url}}"><li>All</li></a>
+							<a class="js-ajax-link mobile-menu-link" class="js-ajax-link" class="js-ajax-link" href="{{@blog.url}}/tag/blog/"><li>Blog</li></a>
+							<a class="js-ajax-link mobile-menu-link" class="js-ajax-link" href="{{@blog.url}}/tag/code/"><li>Linux</li></a>
+							<a class="js-ajax-link mobile-menu-link" href="{{@blog.url}}/about/"><li>About</li></a>
 						</ul>
 					</nav>
 				</div>
@@ -109,17 +109,16 @@
 			<div id="container-right-sidebar" class="container">
 				<nav id="nav-sidebar">
 					<ul>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/blog/"><li class="parentCategory">Blog</li></a>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/photos/"><li class="subCategory">Photos</li></a>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/projects/"><li class="subCategory">Projects</li></a><br>
-
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/linux/"><li class="parentCategory">Linux</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/code/"><li class="parentCategory">Code</li></a>
 						<a class="js-ajax-link" href="{{@blog.url}}/tag/ansible/"><li class="subCategory">Ansible</li></a>
 						<a class="js-ajax-link" href="{{@blog.url}}/tag/scripting/"><li class="subCategory">Scripting</li></a>
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/security/"><li class="subCategory">Security</li></a><br>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/python/"><li class="subCategory">Python</li></a><br>
 
-						<a class="js-ajax-link" href="{{@blog.url}}/tag/ubuntu/"><li class="parentCategory">Ubuntu</li></a>
-						<a href="https://launchpad.net/~cjsheets"><li class="subCategory">Personal PPA</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/linux/"><li class="parentCategory">Linux</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/debian/"><li class="subCategory">Debian</li></a>
+						<a href="https://launchpad.net/~cjsheets"><li class="subCategory">My PPA</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/rhel/"><li class="subCategory">RedHat</li></a>
+						<a class="js-ajax-link" href="{{@blog.url}}/tag/security/"><li class="subCategory">Security</li></a>
 					</ul>
 				</nav>
 

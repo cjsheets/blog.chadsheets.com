@@ -546,6 +546,11 @@ div.content-padding {
 .title-spacer {
   width: auto;
   height: 48px;
+  overflow: auto; }
+
+.mobile-title-spacer {
+  width: auto;
+  height: 105px;
   overflow: auto;
   /** --  Page Body :: Post List --  **/ }
 
