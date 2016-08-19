@@ -1,12 +1,9 @@
-
 #| Git
-
 git remote add origin git@bitbucket.org:cjsheets/chadsheets.com.git
 
 #| SASS
-
 gem install sass
-sass --watch sass/style.scss:css/style.css
+sass --watch sass/style.scss:css/uncompressed/style.css
 
 
 
