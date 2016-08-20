@@ -988,6 +988,19 @@ div.footer-not-mobile {
   display: none; }
 
 /*  
+ * Lightbox
+ */
+.lightbox .lb-image {
+  margin: 0px; }
+
+a.thumb {
+  text-align: center; }
+
+a.thumb img {
+  margin: 4px;
+  display: inline; }
+
+/*  
  * Google Forms iFrame
  */
 .contact-page article {
