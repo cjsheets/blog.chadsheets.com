@@ -247,6 +247,7 @@ History.Adapter.bind(window, 'statechange', function() {
             updateSocialLinks();
             initPostStubs();
             checkForCopyright();
+            googleAnalyticsHit();
             $latestPost = $('.latest-post');
             $postIndex = $('section.post-index');
         });
@@ -415,6 +416,17 @@ function initializeLightbox() {
       'wrapAround': true
     })
 }
+
+function googleAnalyticsHit() {
+  ga('send', 'pageview');
+}
+
+/**
+*function uniAnaHit(path, title) {
+*  ga('set', { page: path, title: title });
+*  ga('send', 'pageview');
+*}
+*/
 
 /**
  * GitHub style code box. Registers a language handler for YAML.
