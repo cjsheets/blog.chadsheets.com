@@ -1,18 +1,31 @@
-# ChadSheets.com
+# Personal Blog Theme
 
-This repository stores configuration files and themes for my personal [Ghost](https://ghost.org/) [blog](http://chadsheets.com). CJS-Ghost is the current theme and is a heavilly modified version of [Ghostwriter](https://github.com/roryg/ghostwriter). All code is released under the MIT License.
+This theme is used for my [personal blog](http://chadsheets.com)
 
+## Features
 
-### Features
-
-* Supports Ghost 0.8.x
-* Fully responsive theme (includes fitvid.js for responsive video embeds).
+* Supports Ghost 0.11.x
+* Fully responsive with mobile optimizations.
 * AJAX loading for fast, smooth transitions between posts and pages.
 * SASS files included.
 
+### To-Do:
 
-### Attribution
+* Use task runner instead of manual compilation
+* Handle disqus reload Asynchronously
+* Use Gist for long code segments
+* Validate CSS handling in theme checker
+* Add portfolio link to `About`
+* Update scss files, seperate concerns
 
-* [Ghostwriter - Jolly Good Themes](http://jollygoodthemes.com)
+### Credit
 
-Trigger the hook
+* Pushstate based on [Ghostwriter](http://jollygoodthemes.com/)
+* Search provided by [ghostHunter](https://github.com/jamalneufeld/ghostHunter)
+
+### License
+
+MIT License
+
+[![Analytics](https://cjs-beacon.appspot.com/UA-10006093-3/github/cjsheets/blog.chadsheets.com?pixel)](https://github.com/cjsheets/blog.chadsheets.com)
+
